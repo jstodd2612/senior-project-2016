@@ -5,9 +5,14 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('juvo', [
+  'ionic',
+  'auth',
+  'juvo.controllers',
+  'juvo.services'
+])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $rootScope, $state) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -21,9 +26,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       StatusBar.styleDefault();
     }
   });
+
+  $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
+    // We can catch the error thrown when the $requireAuth promise is rejected
+    // and redirect the user back to the home page
+    if (error === 'AUTH_REQUIRED') { $state.go('login'); }
+  });
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
+  var requireAuth = ['auth', function(auth) {
+    return auth.$requireAuth();
+  }];
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -32,6 +46,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   $stateProvider
   .state('login', {
     url: '/login',
+    controller: 'LoginCtrl',
     // abstract: true,
     templateUrl: 'templates/login.html'
   })
@@ -50,7 +65,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     views: {
       'home': {
         templateUrl: 'templates/home.html',
-        controller: 'HomeCtrl'
+        controller: 'HomeCtrl',
+        resolve: {
+          currentAuth: requireAuth
+        }
       }
     }
   })
@@ -60,7 +78,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     views: {
       'homework': {
         templateUrl: 'templates/homework.html',
-        controller: 'HomeworkCtrl'
+        controller: 'HomeworkCtrl',
+        resolve: {
+          currentAuth: requireAuth
+        }
       }
     }
   })
@@ -70,7 +91,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     views: {
       'shopping': {
         templateUrl: 'templates/shopping.html',
-        controller: 'ShoppingCtrl'
+        controller: 'ShoppingCtrl',
+        resolve: {
+          currentAuth: requireAuth
+        }
       }
     }
   })
@@ -80,7 +104,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     views: {
       'chores': {
         templateUrl: 'templates/chores.html',
-        controller: 'ChoresCtrl'
+        controller: 'ChoresCtrl',
+        resolve: {
+          currentAuth: requireAuth
+        }
       }
     }
   })
@@ -90,7 +117,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'todos': {
           templateUrl: 'templates/todos.html',
-          controller: 'TodosCtrl'
+          controller: 'TodosCtrl',
+          resolve: {
+            currentAuth: requireAuth
+          }
         }
       }
     })
@@ -99,7 +129,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'tab-chats': {
           templateUrl: 'templates/chat-sub.html',
-          controller: 'ChatDetailCtrl'
+          controller: 'ChatDetailCtrl',
+          resolve: {
+            currentAuth: requireAuth
+          }
         }
       }
     })
@@ -109,7 +142,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     views: {
       'settings': {
         templateUrl: 'templates/account-settings.html',
-        controller: 'SettingsCtrl'
+        controller: 'SettingsCtrl',
+        resolve: {
+          currentAuth: requireAuth
+        }
       }
     }
   });

@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('juvo.controllers', [])
 
 .controller('HomeCtrl', function($scope) {})
 .controller('HomeworkCtrl', function($scope) {})
