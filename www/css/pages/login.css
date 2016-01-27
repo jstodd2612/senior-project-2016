@@ -1,0 +1,27 @@
+.login-form {
+  padding-top: 70px;
+}
+
+.login-form input {
+  border: 0;
+  border-top: 2px solid rgb(192, 192, 192);
+  width: 100%;
+  padding: 30px 7%;
+  font-size: 20px;
+  line-height: 40px;
+}
+
+.login-form input:last-child {
+  border-bottom: 2px solid rgb(192, 192, 192);
+}
+
+.login-wrapper {
+  padding-top: 70px;
+}
+
+.logo {
+  max-height: 200px;
+  max-width: 60%;
+  display: block;
+  margin: auto;
+}
