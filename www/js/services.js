@@ -8,27 +8,27 @@ angular.module('juvo.services', [])
     id: 0,
     name: 'Ben Sparrow',
     lastText: 'You on your way?',
-    face: 'img/ben.png'
+    face: 'img/avatar-icons/bird.png'
   }, {
     id: 1,
     name: 'Max Lynx',
     lastText: 'Hey, it\'s me',
-    face: 'img/max.png'
+    face: 'img/avatar-icons/turtle.png'
   }, {
     id: 2,
     name: 'Adam Bradleyson',
     lastText: 'I should buy a boat',
-    face: 'img/adam.jpg'
+    face: 'img/avatar-icons/fish.png'
   }, {
     id: 3,
     name: 'Perry Governor',
     lastText: 'Look at my mukluks!',
-    face: 'img/perry.png'
+    face: 'img/avatar-icons/lobster.png'
   }, {
     id: 4,
     name: 'Mike Harrington',
     lastText: 'This is wicked good ice cream.',
-    face: 'img/mike.png'
+    face: 'img/avatar-icons/cow.png'
   }];
 
   return {

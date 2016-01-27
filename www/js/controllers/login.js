@@ -2,7 +2,8 @@ angular.module('juvo.controllers')
 .controller('LoginCtrl', [
   '$scope',
   'auth',
-  function($scope, auth) {
+  '$location',
+  function($scope, auth, $location) {
 
     $scope.errorMessage = '';
 
@@ -12,6 +13,20 @@ angular.module('juvo.controllers')
       auth.$authWithOAuthPopup(provider)
         .then(function(authData) {
           console.log(authData);
+          $location.path('/#/home');
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    };
+
+    $scope.logout = function() {
+      // if (!auth) { return; }
+      console.log("Logout Ran...");
+      auth.$unauth()
+        .then(function(authData) {
+          console.log(authData);
+          $location.path('/#/login');
         })
         .catch(function(error) {
           console.log(error);
@@ -19,4 +34,4 @@ angular.module('juvo.controllers')
     };
 
   }
-])
+]);
