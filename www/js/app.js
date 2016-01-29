@@ -9,7 +9,8 @@ angular.module('juvo', [
   'ionic',
   'auth',
   'juvo.controllers',
-  'juvo.services'
+  'juvo.services',
+  'accordian'
 ])
 
 .run(function($ionicPlatform, $rootScope, $state) {
