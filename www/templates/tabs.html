@@ -3,7 +3,9 @@ Create tabs with an icon and label, using the tabs-positive style.
 Each tab's child <ion-nav-view> directive will have its own
 navigation history that also transitions its views in and out.
 -->
-<ion-tabs class="tabs-icon-top tabs-color-active-positive">
+<!--<img class="addbutt" ng-src="img/addbutton.png"> -->
+
+<ion-tabs class="tabs-striped tabs-icon-top tabs-color-balanced">
 
   <!-- Home Tab -->
   <ion-tab title="Home" icon-off="ion-android-home" icon-on="ion-android-home" href="#/tab/home">
@@ -11,28 +13,23 @@ navigation history that also transitions its views in and out.
   </ion-tab>
 
   <!-- Todos Tab -->
-  <ion-tab title="To-Do's" icon-off="ion-ios-list-outline" icon-on="ion-ios-list" href="#/tab/todos">
+  <ion-tab title="To-Do" icon-off="ion-android-list" icon-on="ion-android-list" href="#/tab/todos">
     <ion-nav-view name="todos"></ion-nav-view>
   </ion-tab>
 
   <!-- Shopping Tab -->
-  <ion-tab title="Shopping" icon-off="ion-ios-cart-outline" icon-on="ion-ios-cart" href="#/tab/shopping">
+  <ion-tab title="Shopping" icon-off="ion-android-cart" icon-on="ion-android-cart" href="#/tab/shopping">
     <ion-nav-view name="shopping"></ion-nav-view>
   </ion-tab>
 
   <!-- Chores Tab -->
-  <ion-tab title="Chores" icon-off="ion-nuclear" icon-on="ion-nuclear" href="#/tab/chores">
+  <ion-tab title="Chores" icon-off="ion-clipboard" icon-on="ion-clipboard" href="#/tab/chores">
     <ion-nav-view name="chores"></ion-nav-view>
   </ion-tab>
 
   <!-- Homework Tab -->
   <ion-tab title="Homework" icon-off="ion-university" icon-on="ion-university" href="#/tab/homework">
     <ion-nav-view name="homework"></ion-nav-view>
-  </ion-tab>
-
-  <!-- Chores Tab -->
-  <ion-tab title="Settings" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/settings">
-    <ion-nav-view name="settings"></ion-nav-view>
   </ion-tab>
 
 
