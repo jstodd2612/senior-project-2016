@@ -10,15 +10,15 @@
                   ng-click="toggleGroup(group)"
                   ng-class="{active: isGroupShown(group)}">
 
-                  <img ng-src="img/avatar-icons/turtle.png">
-                  <p class="homename">Group {{group.name}}</p>
+                  <img ng-src="img/avatar-icons/Bird.png">
+                  <p class="homename">{{group.name}}</p>
                   <i class="icon icon-accessory" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
 
         </ion-item>
         <ion-item class="item-accordion"
                   ng-repeat="item in group.items"
                   ng-show="isGroupShown(group)">
-        <a href="homework-expand.html">  {{item}}</a>
+        <a ui-sref="homework-create.html">{{item}}</a>
 
         </ion-item>
       </div>

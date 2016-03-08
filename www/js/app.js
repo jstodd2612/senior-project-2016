@@ -78,7 +78,7 @@ angular.module('juvo', [
     url: '/homework',
     views: {
       'homework': {
-        templateUrl: 'templates/homework.html',
+        templateUrl: 'templates/homework/index.html',
         controller: 'HomeworkCtrl',
         resolve: {
           currentAuth: requireAuth
@@ -86,6 +86,32 @@ angular.module('juvo', [
       }
     }
   })
+  .state('tab.homework.create', {
+    url:'/create',
+    views: {
+      'homeworkCreate' : {
+        templateUrl: 'templates/homework/create.html',
+        // template: '<h1>CREATE HOMEWORK!</h1>',
+        // controller: function($scope){
+        //   console.log("Not working!!!");
+        // },
+        resolve: {
+          currentAuth: requireAuth
+        }
+      }
+    }
+  })
+  // .state('tab.expand', {
+  //   url:'/homework/expand',
+  //   views: {
+  //     'homework-expand' : {
+  //       templateUrl: 'templates/homework/expand.html',
+  //       resolve: {
+  //         currentAuth: requireAuth
+  //       }
+  //     }
+  //   }
+  // })
 
   .state('tab.shopping', {
     url: '/shopping',
@@ -104,8 +130,23 @@ angular.module('juvo', [
     url: '/chores',
     views: {
       'chores': {
-        templateUrl: 'templates/chores.html',
+        templateUrl: 'templates/chores/index.html',
         controller: 'ChoresCtrl',
+        resolve: {
+          currentAuth: requireAuth
+        }
+      }
+    }
+  })
+  .state('tab.chores.create', {
+    url:'/create',
+    views: {
+      'choresCreate' : {
+        templateUrl: 'templates/chores/create.html',
+        // template: '<h1>CREATE HOMEWORK!</h1>',
+        // controller: function($scope){
+        //   console.log("Not working!!!");
+        // },
         resolve: {
           currentAuth: requireAuth
         }
@@ -150,7 +191,7 @@ angular.module('juvo', [
       }
     }
   });
-
+  console.log("Ran the stateProvider");
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('tab/home');
 
