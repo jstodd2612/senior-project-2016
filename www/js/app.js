@@ -91,10 +91,6 @@ angular.module('juvo', [
     views: {
       'homeworkCreate' : {
         templateUrl: 'templates/homework/create.html',
-        // template: '<h1>CREATE HOMEWORK!</h1>',
-        // controller: function($scope){
-        //   console.log("Not working!!!");
-        // },
         resolve: {
           currentAuth: requireAuth
         }
@@ -106,6 +102,10 @@ angular.module('juvo', [
   //   views: {
   //     'homework-expand' : {
   //       templateUrl: 'templates/homework/expand.html',
+          //  template: '<h1>CREATE HOMEWORK!</h1>',
+          //  controller: function($scope){
+          //    console.log("Not working!!!");
+          //  },
   //       resolve: {
   //         currentAuth: requireAuth
   //       }
@@ -143,10 +143,6 @@ angular.module('juvo', [
     views: {
       'choresCreate' : {
         templateUrl: 'templates/chores/create.html',
-        // template: '<h1>CREATE HOMEWORK!</h1>',
-        // controller: function($scope){
-        //   console.log("Not working!!!");
-        // },
         resolve: {
           currentAuth: requireAuth
         }
