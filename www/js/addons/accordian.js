@@ -1,12 +1,15 @@
 angular.module('accordian', ['ionic'])
 
 .controller('accordCtrl', function($scope) {
-  $scope.groups = ['Samantha', 'Jerry', 'Richard', 'Carrie'];
-  for (var i=0; i<10; i++) {
+  $scope.groups = ['Samantha', 'Jerry', 'Richard', 'Carrie', 'Billy', 'Sandra', 'Kaylene', 'Kaylene', 'Finch'];
+
+  for (var i=0; i<$scope.groups.length; i++) {
+    console.log($scope.groups[i]);
     $scope.groups[i] = {
-      name: i,
+      name: $scope.groups[i],
       items: ['item1', 'item2', 'item3', 'item4']
     };
+    console.log($scope.groups[i]);
     for (var j=0; j<3; j++) {
       $scope.groups[i].items.push(i + '-' + j);
     }
