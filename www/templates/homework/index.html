@@ -10,7 +10,7 @@
                   ng-click="toggleGroup(group)"
                   ng-class="{active: isGroupShown(group)}">
 
-                  <img ng-src="img/avatar-icons/turtle.png">
+                  <img ng-src="img/avatar-icons/lion.png">
                   <p class="homename">Group {{group.name}}</p>
                   <i class="icon icon-accessory" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
 
@@ -18,13 +18,17 @@
         <ion-item class="item-accordion"
                   ng-repeat="item in group.items"
                   ng-show="isGroupShown(group)">
-        <a nav-direction="up" ui-sref="tab.homework.create">Homework: {{item}}</a>
-
+                  <a ui-sref="tab.homework.create">
+                    <button class="button button-positive">
+                      Animate change page using href attribute
+                    </button>
+                  </a>
         </ion-item>
       </div>
     </ion-list>
   </div>
-  <ion-nav-view name="homeworkCreate"></ion-nav-view>
+
+
 
   </ion-content>
 </ion-view>

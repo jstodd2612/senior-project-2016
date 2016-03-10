@@ -73,30 +73,63 @@ angular.module('juvo', [
       }
     }
   })
+//   .state('tab.homework', {
+//   abstract: true,
+//   url: '/homework',
+//   views: {
+//     'homework': {
+//       template: '<ion-nav-view></ion-nav-view>'
+//     }
+//   }
+// })
+//   .state('tab.homework.index', {
+//     url: '',
+//     views: {
+//       'homework': {
+//         templateUrl: 'templates/homework/index.html',
+//         controller: 'HomeworkCtrl',
+//         resolve: {
+//           currentAuth: requireAuth
+//         }
+//       }
+//     }
+//   })
+//   .state('tab.homework.create', {
+//     url:'/create',
+//     views: {
+//       'homeworkCreate' : {
+//         templateUrl: 'templates/homework/create.html',
+//         resolve: {
+//           currentAuth: requireAuth
+//         }
+//       }
+//     }
+//   })
 
   .state('tab.homework', {
+    abstract: true,
     url: '/homework',
     views: {
       'homework': {
-        templateUrl: 'templates/homework/index.html',
-        controller: 'HomeworkCtrl',
+        template: '<ion-nav-view></ion-nav-view>',
         resolve: {
           currentAuth: requireAuth
         }
       }
     }
+  })
+  .state('tab.homework.index', {
+    url: '',
+    templateUrl: 'templates/homework/index.html',
+    controller: 'HomeworkCtrl'
   })
   .state('tab.homework.create', {
-    url:'/create',
-    views: {
-      'homeworkCreate' : {
-        templateUrl: 'templates/homework/create.html',
-        resolve: {
-          currentAuth: requireAuth
-        }
-      }
-    }
+    url: '/create',
+    templateUrl: 'templates/homework/create.html',
   })
+
+
+
   // .state('tab.expand', {
   //   url:'/homework/expand',
   //   views: {
@@ -127,28 +160,53 @@ angular.module('juvo', [
   })
 
   .state('tab.chores', {
+    abstract: true,
     url: '/chores',
     views: {
       'chores': {
-        templateUrl: 'templates/chores/index.html',
-        controller: 'ChoresCtrl',
+        template: '<ion-nav-view></ion-nav-view>',
         resolve: {
           currentAuth: requireAuth
         }
       }
     }
   })
+
+  .state('tab.chores.index', {
+    url: '',
+    templateUrl: 'templates/chores/index.html',
+    controller: 'ChoresCtrl'
+  })
+
   .state('tab.chores.create', {
-    url:'/create',
-    views: {
-      'choresCreate' : {
-        templateUrl: 'templates/chores/create.html',
-        resolve: {
-          currentAuth: requireAuth
-        }
-      }
-    }
+    url: '/create',
+    templateUrl: 'templates/chores/create.html',
+    controller: 'ChoresCtrl'
   })
+
+  // .state('tab.chores', {
+  //   url: '/chores',
+  //   views: {
+  //     'chores': {
+  //       templateUrl: 'templates/chores/index.html',
+  //       controller: 'ChoresCtrl',
+  //       resolve: {
+  //         currentAuth: requireAuth
+  //       }
+  //     }
+  //   }
+  // })
+  // .state('tab.chores.create', {
+  //   url:'/create',
+  //   views: {
+  //     'choresCreate' : {
+  //       templateUrl: 'templates/chores/create.html',
+  //       resolve: {
+  //         currentAuth: requireAuth
+  //       }
+  //     }
+  //   }
+  // })
 
   .state('tab.todos', {
       url: '/todos',
@@ -186,7 +244,11 @@ angular.module('juvo', [
         }
       }
     }
-  });
+  })
+
+
+
+
   console.log("Ran the stateProvider");
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('tab/home');

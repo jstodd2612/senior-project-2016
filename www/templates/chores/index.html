@@ -1,5 +1,5 @@
-<ion-view view-title="chores">
-  <ion-content class="padding">
+<ion-view view-title="Chores">
+  <ion-content>
 
     <div ng-controller="accordCtrl">
     <ion-list>
@@ -20,13 +20,16 @@
         <ion-item class="item-accordion"
                   ng-repeat="item in group.items"
                   ng-show="isGroupShown(group)">
-        <a ui-sref="tab.chores.create">Chore: {{item}}</a>
+        <a ui-sref="tab.chores.create">
+          <button class="button button-positive">
+            Animate change page using href attribute
+          </button>
+        </a>
 
         </ion-item>
       </div>
     </ion-list>
   </div>
-  <ion-nav-view name="choresCreate"></ion-nav-view>
 
   </ion-content>
 </ion-view>
