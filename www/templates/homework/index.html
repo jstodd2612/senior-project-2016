@@ -18,9 +18,14 @@
         <ion-item class="item-accordion"
                   ng-repeat="item in group.items"
                   ng-show="isGroupShown(group)">
+                  <a ui-sref="tab.homework.view">
+                    <button class="button button-positive">
+                      View {{group.name}}'s Assignment
+                    </button>
+                  </a>
                   <a ui-sref="tab.homework.create">
                     <button class="button button-positive">
-                      Animate change page using href attribute
+                      Create New Assignment for {{group.name}}
                     </button>
                   </a>
         </ion-item>

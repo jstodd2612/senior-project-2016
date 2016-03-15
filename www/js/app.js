@@ -127,6 +127,10 @@ angular.module('juvo', [
     url: '/create',
     templateUrl: 'templates/homework/create.html',
   })
+  .state('tab.homework.view', {
+    url: '/view',
+    templateUrl: 'templates/homework/view.html',
+  })
 
 
 
@@ -183,6 +187,11 @@ angular.module('juvo', [
     templateUrl: 'templates/chores/create.html',
     controller: 'ChoresCtrl'
   })
+  .state('tab.chores.view', {
+    url: '/view',
+    templateUrl: 'templates/chores/view.html',
+    controller: 'ChoresCtrl'
+  })
 
   // .state('tab.chores', {
   //   url: '/chores',
@@ -233,23 +242,40 @@ angular.module('juvo', [
       }
     })
 
+  // .state('tab.settings', {
+  //   url: '/settings',
+  //   views: {
+  //     'settings': {
+  //       templateUrl: 'templates/settings/account-settings.html',
+  //       controller: 'SettingsCtrl',
+  //       resolve: {
+  //         currentAuth: requireAuth
+  //       }
+  //     }
+  //   }
+  // })
   .state('tab.settings', {
+    abstract: true,
     url: '/settings',
     views: {
       'settings': {
-        templateUrl: 'templates/account-settings.html',
-        controller: 'SettingsCtrl',
+        template: '<ion-nav-view></ion-nav-view>',
         resolve: {
           currentAuth: requireAuth
         }
       }
     }
   })
+  .state('tab.settings.index', {
+    url: '',
+    templateUrl: 'templates/settings/index.html',
+    controller: 'SettingsCtrl'
+  })
 
 
 
 
-  console.log("Ran the stateProvider");
+  // console.log("Ran the stateProvider");
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('tab/home');
 
