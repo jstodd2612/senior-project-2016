@@ -7,10 +7,10 @@ angular.module('accordian', ['ionic'])
     // console.log($scope.groups[i]);
     $scope.groups[i] = {
       name: $scope.groups[i],
-      items: ['item1', 'item2', 'item3', 'item4']
+      items: ['item1']
     };
     // console.log($scope.groups[i]);
-    for (var j=0; j<3; j++) {
+    for (var j=0; j<0; j++) {
       $scope.groups[i].items.push(i + '-' + j);
     }
   }
