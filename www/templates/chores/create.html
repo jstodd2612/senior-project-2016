@@ -7,9 +7,9 @@
         People
       </div>
 
-      <ion-checkbox>Karen</ion-checkbox>
-      <ion-checkbox>Timothy</ion-checkbox>
-      <ion-checkbox>Samantha</ion-checkbox>
+      <ion-checkbox class="checkbox-balanced">Karen</ion-checkbox>
+      <ion-checkbox class="checkbox-balanced">Timothy</ion-checkbox>
+      <ion-checkbox class="checkbox-balanced">Samantha</ion-checkbox>
 
       <div class="item item-divider">
         Jobs
@@ -29,13 +29,13 @@
       </div>
 
       <div class="button-bar">
-      <a class="button">Sun</a>
-      <a class="button">Mon</a>
-      <a class="button">Tue</a>
-      <a class="button">Wed</a>
-      <a class="button">Thu</a>
-      <a class="button">Fri</a>
-      <a class="button">Sat</a>
+        <a class="button button-primary" ng-model="buttonSun" ng-click="buttonSun.clicked=!buttonSun.clicked" ng-class="buttonSun.clicked?'button-balanced':'button-stable'">Sun</a>
+        <a class="button button-primary" ng-model="buttonMon" ng-click="buttonMon.clicked=!buttonMon.clicked" ng-class="buttonMon.clicked?'button-balanced':'button-stable'">Mon</a>
+        <a class="button button-primary" ng-model="buttonTue" ng-click="buttonTue.clicked=!buttonTue.clicked" ng-class="buttonTue.clicked?'button-balanced':'button-stable'">Tue</a>
+        <a class="button button-primary" ng-model="buttonWed" ng-click="buttonWed.clicked=!buttonWed.clicked" ng-class="buttonWed.clicked?'button-balanced':'button-stable'">Wed</a>
+        <a class="button button-primary" ng-model="buttonThu" ng-click="buttonThu.clicked=!buttonThu.clicked" ng-class="buttonThu.clicked?'button-balanced':'button-stable'">Thu</a>
+        <a class="button button-primary" ng-model="buttonFri" ng-click="buttonFri.clicked=!buttonFri.clicked" ng-class="buttonFri.clicked?'button-balanced':'button-stable'">Fri</a>
+        <a class="button button-primary" ng-model="buttonSat" ng-click="buttonSat.clicked=!buttonSat.clicked" ng-class="buttonSat.clicked?'button-balanced':'button-stable'">Sat</a>
     </div>
 
     </div>
