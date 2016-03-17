@@ -181,7 +181,6 @@ angular.module('juvo', [
     templateUrl: 'templates/chores/index.html',
     controller: 'ChoresCtrl'
   })
-
   .state('tab.chores.create', {
     url: '/create',
     templateUrl: 'templates/chores/create.html',

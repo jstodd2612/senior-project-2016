@@ -1,19 +1,14 @@
 <ion-view view-title="Chores">
   <ion-content>
-
     <div ng-controller="accordCtrl">
       <ion-list>
-
-
         <div ng-repeat="group in groups">
           <ion-item class="item-avatar item-icon-right" type="item-text-wrap"
                     ng-click="toggleGroup(group)"
                     ng-class="{active: isGroupShown(group)}">
-
-                    <img ng-src="img/avatar-icons/lion.png">
-                    <p class="homename">Group {{group.name}}</p>
+                    <img ng-src="img/avatar-icons/bull.png">
+                    <p class="homename">Chores for  {{group.name}}</p>
                     <i class="icon icon-accessory" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
-
           </ion-item>
           <ion-item class="item-accordion"
                     ng-repeat="item in group.items"
@@ -32,7 +27,6 @@
         </div>
       </ion-list>
     </div>
-
   </ion-content>
 </ion-view>
 
