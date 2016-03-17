@@ -8,8 +8,8 @@
   font-size: 70px;
   background: $warning;
   position: fixed;
-  bottom: 60px; /* Adjust to where you want it */
-  right: 20px; /* Adjust to where you want it */
+  bottom: 90px; /* Adjust to where you want it */
+  right: 25px; /* Adjust to where you want it */
   z-index: 9999;
 }
 
@@ -31,7 +31,6 @@
 .custom-icon {
   color: #6cc484;
 }
-/*.addbutt{position:absolute; z-index:99; right:3%; bottom:8%; width:80px;}
 
 /* button animation*/
 .chat-item.ng-enter-stagger {
@@ -47,3 +46,11 @@
 .title-image {padding:2px; width:100px;}
 p.homename
   {font-size:20px; padding-top:10px;}
+
+/* dropdown STYLING */
+.item-select {
+  width: 55%; /* Or whatever you'd like the width to be */
+}
+.item-select select {
+  left: 0;
+}
