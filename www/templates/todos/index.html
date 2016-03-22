@@ -1,4 +1,4 @@
-<ion-view view-title="Homework">
+<ion-view view-title="Todos">
   <ion-content>
     <div ng-controller="accordCtrl">
       <ion-list>
@@ -8,7 +8,7 @@
                     ng-class="{active: isGroupShown(group)}">
 
                     <img ng-src="img/avatar-icons/lion.png">
-                    <p class="homename">Homework for {{group.name}}</p>
+                    <p class="homename">Todos for {{group.name}}</p>
                     <i class="icon icon-accessory" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
           </ion-item>
           <ion-item class="item-accordion"
@@ -16,7 +16,7 @@
                     ng-show="isGroupShown(group)">
                     <a ui-sref="tab.homework.view">
                       <button class="button button-positive">
-                        View {{group.name}}'s Assignment
+                        View {{group.name}}'s Todo Assignment
                       </button>
                     </a>
           </ion-item>

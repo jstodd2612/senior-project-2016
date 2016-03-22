@@ -150,17 +150,74 @@ angular.module('juvo', [
   //   }
   // })
 
-  .state('tab.shopping', {
-    url: '/shopping',
+  .state('tab.todos', {
+    abstract: true,
+    url: '/todos',
     views: {
-      'shopping': {
-        templateUrl: 'templates/shopping.html',
-        controller: 'ShoppingCtrl',
+      'todos': {
+        template: '<ion-nav-view></ion-nav-view>',
         resolve: {
           currentAuth: requireAuth
         }
       }
     }
+  })
+
+  .state('tab.todos.index', {
+    url: '',
+    templateUrl: 'templates/todos/index.html',
+    controller: 'TodosCtrl'
+  })
+  .state('tab.todos.create', {
+    url: '/create',
+    templateUrl: 'templates/todos/create.html',
+    controller: 'TodosCtrl'
+  })
+  .state('tab.todos.view', {
+    url: '/view',
+    templateUrl: 'templates/todos/view.html',
+    controller: 'TodosCtrl'
+  })
+
+  // .state('tab.shopping', {
+  //   url: '/shopping',
+  //   views: {
+  //     'shopping': {
+  //       templateUrl: 'templates/shopping.html',
+  //       controller: 'ShoppingCtrl',
+  //       resolve: {
+  //         currentAuth: requireAuth
+  //       }
+  //     }
+  //   }
+  // })
+  .state('tab.shopping', {
+    abstract: true,
+    url: '/shopping',
+    views: {
+      'shopping': {
+        template: '<ion-nav-view></ion-nav-view>',
+        resolve: {
+          currentAuth: requireAuth
+        }
+      }
+    }
+  })
+
+  .state('tab.shopping.index', {
+    url: '',
+    templateUrl: 'templates/shopping/index.html',
+    controller: 'ShoppingCtrl'
+  })
+  .state('tab.shopping.create', {
+    url: '/create',
+    templateUrl: 'templates/shopping/create.html',
+    controller: 'ShoppingCtrl'
+  })
+  .state('tab.shopping.view', {
+    url: '/view',
+    templateUrl: 'templates/shopping/view.html',
+    controller: 'ShoppingCtrl'
   })
 
   .state('tab.chores', {
@@ -216,18 +273,18 @@ angular.module('juvo', [
   //   }
   // })
 
-  .state('tab.todos', {
-      url: '/todos',
-      views: {
-        'todos': {
-          templateUrl: 'templates/todos.html',
-          controller: 'TodosCtrl',
-          resolve: {
-            currentAuth: requireAuth
-          }
-        }
-      }
-    })
+  // .state('tab.todos', {
+  //     url: '/todos',
+  //     views: {
+  //       'todos': {
+  //         templateUrl: 'templates/todos.html',
+  //         controller: 'TodosCtrl',
+  //         resolve: {
+  //           currentAuth: requireAuth
+  //         }
+  //       }
+  //     }
+  //   })
     .state('tab.chat-detail', {
       url: '/chats/:chatId',
       views: {
