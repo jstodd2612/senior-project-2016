@@ -1,7 +1,6 @@
 <ion-view view-title="Homework">
   <ion-content>
     <div ng-controller="accordCtrl">
-<<<<<<< HEAD
     <ion-list>
 
         <div class="">
@@ -10,7 +9,7 @@
                     ng-class="{active: isGroupShown(group)}">
 
                     <p class="homename">Overdue</p>
-=======
+<!-- =======
       <ion-list>
         <div ng-repeat="group in groups">
           <ion-item class="item-avatar item-icon-right" type="item-text-wrap"
@@ -18,32 +17,19 @@
                     ng-class="{active: isGroupShown(group)}">
 
                     <img ng-src="img/avatar-icons/lion.png">
-                    <p class="homename">Homework for {{group.name}}</p>
->>>>>>> 1cb7df11216da193cba4f993f72a4368528707ea
+                    <p class="homename">Homework for {{group.name}}</p> -->
                     <i class="icon icon-accessory" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
           </ion-item>
           <ion-item class="item-accordion"
                     ng-repeat="item in group.items"
                     ng-show="isGroupShown(group)">
-<<<<<<< HEAD
-                    <a ui-sref="tab.chores.view">
-                      <button class="button button-positive">
-                        View {{group.name}}'s Chores
-                      </button>
-                    </a>
-                    <a ui-sref="tab.chores.create">
-                      <button class="button button-positive">
-                        Create New Chore for {{group.name}}
-=======
                     <a ui-sref="tab.homework.view">
                       <button class="button button-positive">
                         View {{group.name}}'s Assignment
->>>>>>> 1cb7df11216da193cba4f993f72a4368528707ea
                       </button>
                     </a>
           </ion-item>
         </div>
-<<<<<<< HEAD
 
         <div class="">
           <ion-item class="item-icon-right" type="item-text-wrap"
@@ -82,13 +68,6 @@
       </div>
     </ion-list>
   </div>
-
-
-
-=======
-      </ion-list>
-    </div>
->>>>>>> 1cb7df11216da193cba4f993f72a4368528707ea
   </ion-content>
 </ion-view>
 
