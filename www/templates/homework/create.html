@@ -1,31 +1,50 @@
-
 <ion-view name="homeworkCreate" view-title="Create Homework">
   <ion-content>
-    <div>
-      <h2>Create Homework Assignment</h2>
-    </div>
-    <!-- <ion-list>
 
+    <div class="list">
 
-
-      <div ng-repeat="group in groups">
-        <ion-item class="item-avatar item-icon-right" type="item-text-wrap"
-                  ng-click="toggleGroup(group)"
-                  ng-class="{active: isGroupShown(group)}">
-
-                  <img ng-src="img/avatar-icons/Bird.png">
-                  <p class="homename">{{group.name}}</p>
-                  <i class="icon icon-accessory" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
-
-        </ion-item>
-        <ion-item class="item-accordion"
-                  ng-repeat="item in group.items"
-                  ng-show="isGroupShown(group)">
-        <a href="homework-create.html">  {{item}}</a>
-
-        </ion-item>
+      <div class="item item-divider">
+        People
       </div>
-    </ion-list> -->
+
+      <ion-checkbox class="checkbox-balanced">Karen</ion-checkbox>
+      <ion-checkbox class="checkbox-balanced">Timothy</ion-checkbox>
+      <ion-checkbox class="checkbox-balanced">Samantha</ion-checkbox>
+
+      <div class="item item-divider">
+        Select Subject
+      </div>
+
+      <ion-item class="item-input item-select">
+        <div class="input-label">
+        </div>
+        <select>
+          <option selected>Option 1</option>
+          <option>Option 2</option>
+        </select>
+      </ion-item>
+
+      <div class="item item-divider">
+        Due Date
+      </div>
+
+      <ion-item>
+        <input type="date">
+      </ion-item>
+
+      <div class="item item-divider">
+        Description
+      </div>
+
+      <ion-item>
+        <label class="item item-input">
+        <textarea placeholder="description">
+        </textarea>
+      </label>
+        </ion-item>
+
+    </div>
+
 
   </ion-content>
 </ion-view>

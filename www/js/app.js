@@ -133,10 +133,7 @@ angular.module('juvo', [
     url: '/view',
     templateUrl: 'templates/homework/view.html',
   })
-  .state('tab.homework.view', {
-    url: '/view',
-    templateUrl: 'templates/homework/view.html',
-  })
+
   .state('tab.homework.assignment', {
     url: '/assignment',
     templateUrl: 'templates/homework/assignment.html',
@@ -332,7 +329,7 @@ angular.module('juvo', [
     url: '',
     templateUrl: 'templates/settings/index.html',
     controller: 'SettingsCtrl'
-  })
+  });
 
 
 
