@@ -1,6 +1,15 @@
 <ion-view view-title="Homework">
   <ion-content>
     <div ng-controller="accordCtrl">
+    <ion-list>
+
+        <div class="">
+          <ion-item class="item-icon-right" type="item-text-wrap"
+                    ng-click="toggleGroup(group)"
+                    ng-class="{active: isGroupShown(group)}">
+
+                    <p class="homename">Overdue</p>
+<!-- =======
       <ion-list>
         <div ng-repeat="group in groups">
           <ion-item class="item-avatar item-icon-right" type="item-text-wrap"
@@ -8,7 +17,7 @@
                     ng-class="{active: isGroupShown(group)}">
 
                     <img ng-src="img/avatar-icons/lion.png">
-                    <p class="homename">Homework for {{group.name}}</p>
+                    <p class="homename">Homework for {{group.name}}</p> -->
                     <i class="icon icon-accessory" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
           </ion-item>
           <ion-item class="item-accordion"
@@ -21,8 +30,44 @@
                     </a>
           </ion-item>
         </div>
-      </ion-list>
-    </div>
+
+        <div class="">
+          <ion-item class="item-icon-right" type="item-text-wrap"
+                    ng-click="toggleGroup(group)"
+                    ng-class="{active: isGroupShown(group)}">
+
+                    <p class="homename">This Week</p>
+                    <i class="icon icon-accessory" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
+          </ion-item>
+        </div>
+
+
+        <div class="">
+          <ion-item class="item-icon-right" type="item-text-wrap"
+                    ng-click="toggleGroup(group)"
+                    ng-class="{active: isGroupShown(group)}">
+
+                    <p class="homename">Next Week</p>
+                    <i class="icon icon-accessory" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
+          </ion-item>
+        </div>
+
+
+
+      <div ng-repeat="group in groups">
+        <ion-item class="item-avatar item-icon-right" type="item-text-wrap"
+                  ng-click="toggleGroup(group)"
+                  ng-class="{active: isGroupShown(group)}">
+
+                  <img ng-src="img/avatar-icons/lion.png">
+                  <p class="homename">Homework for {{group.name}}</p>
+                  <i class="icon icon-accessory" ng-class="isGroupShown(group) ? "></i>
+
+        </ion-item>
+
+      </div>
+    </ion-list>
+  </div>
   </ion-content>
 </ion-view>
 

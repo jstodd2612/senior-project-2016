@@ -107,6 +107,8 @@ angular.module('juvo', [
 //     }
 //   })
 
+//----HOMEWORK ROUTING----//
+
   .state('tab.homework', {
     abstract: true,
     url: '/homework',
@@ -133,6 +135,11 @@ angular.module('juvo', [
     templateUrl: 'templates/homework/view.html',
   })
 
+  .state('tab.homework.assignment', {
+    url: '/assignment',
+    templateUrl: 'templates/homework/assignment.html',
+  })
+
 
 
   // .state('tab.expand', {
@@ -150,6 +157,9 @@ angular.module('juvo', [
   //     }
   //   }
   // })
+
+
+  //----TODOS ROUTING----//
 
   .state('tab.todos', {
     abstract: true,
@@ -180,18 +190,8 @@ angular.module('juvo', [
     controller: 'TodosCtrl'
   })
 
-  // .state('tab.shopping', {
-  //   url: '/shopping',
-  //   views: {
-  //     'shopping': {
-  //       templateUrl: 'templates/shopping.html',
-  //       controller: 'ShoppingCtrl',
-  //       resolve: {
-  //         currentAuth: requireAuth
-  //       }
-  //     }
-  //   }
-  // })
+//----SHOPPING ROUTING----//
+
   .state('tab.shopping', {
     abstract: true,
     url: '/shopping',
@@ -220,6 +220,9 @@ angular.module('juvo', [
     templateUrl: 'templates/shopping/view.html',
     controller: 'ShoppingCtrl'
   })
+
+
+//----CHORES ROUTING----//
 
   .state('tab.chores', {
     abstract: true,
@@ -327,7 +330,7 @@ angular.module('juvo', [
     url: '',
     templateUrl: 'templates/settings/index.html',
     controller: 'SettingsCtrl'
-  })
+  });
 
 
 
