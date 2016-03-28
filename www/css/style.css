@@ -54,3 +54,22 @@ p.homename
 .item-select select {
   left: 0;
 }
+
+/* cREATE Todo/Shopping PAGE STYLING */
+h1.listtitle {
+  padding:15px 0px 5px 15px;
+  font-size: 20px;
+  color:#595959;
+}
+
+/* VIEW CHORE PAGE STYLING */
+h1.chorepg {
+  font-size: 20px;
+  color:#595959;
+}
+
+p.chorepg {
+  padding:0px 0px 5px 15px;
+  font-size: 15px;
+  color:#737373;
+}
