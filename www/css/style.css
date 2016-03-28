@@ -54,3 +54,13 @@ p.homename
 .item-select select {
   left: 0;
 }
+
+/* homework assignment styling*/
+div.boxed {
+  width: 75px;
+  height: 20px;
+  border: solid 2px;
+  background-color: lightgrey;
+  padding-right:10px;
+
+}

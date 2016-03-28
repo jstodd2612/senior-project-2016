@@ -60,7 +60,7 @@
                   ng-class="{active: isGroupShown(group)}">
 
                   <img ng-src="img/avatar-icons/lion.png">
-                  <p class="homename">Homework for {{group.name}}</p>
+                  <a class="homename" ui-sref="tab.homework.assignment">Homework for {{group.name}}</a>
                   <i class="icon icon-accessory" ng-class="isGroupShown(group) ? "></i>
 
         </ion-item>
