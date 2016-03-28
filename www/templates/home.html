@@ -1,5 +1,5 @@
 <ion-view view-title="Home">
-  <ion-content>
+  <ion-content ng-controller="addButtCtrl">
     <div ng-controller="accordCtrl">
     <ion-list>
 
@@ -29,9 +29,10 @@
 
 </ion-view>
 
+
 <div class="float-button">
   <span class="height-fix">
-    <a ui-sref="add-trip" class="content">
+    <a ng-click="modal.show()" class="content">
       <i class="ion-plus-circled custom-icon"> </i>
     </a>
   </span>

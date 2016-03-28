@@ -10,7 +10,8 @@ angular.module('juvo', [
   'auth',
   'juvo.controllers',
   'juvo.services',
-  'accordian'
+  'accordian',
+  'addButt'
 ])
 
 .run(function($ionicPlatform, $rootScope, $state) {
