@@ -69,9 +69,57 @@
     </ion-list>
   </div>
   </ion-content>
+  <script id="homework-create.html" type="text/ng-template">
+  <div class="list">
+
+    <div class="item item-divider">
+      People
+    </div>
+
+    <ion-checkbox class="checkbox-balanced">Karen</ion-checkbox>
+    <ion-checkbox class="checkbox-balanced">Timothy</ion-checkbox>
+    <ion-checkbox class="checkbox-balanced">Samantha</ion-checkbox>
+
+    <div class="item item-divider">
+      Select Subject
+    </div>
+
+    <ion-item class="item-input item-select">
+      <div class="input-label">
+      </div>
+      <select>
+        <option selected>Option 1</option>
+        <option>Option 2</option>
+      </select>
+    </ion-item>
+
+    <div class="item item-divider">
+      Due Date
+    </div>
+
+    <label class="itam item-input">
+      <span class="input-label">Date</span>
+      <input type="date">
+    </label>
+
+
+
+    <div class="item item-divider">
+      Description
+    </div>
+
+    <ion-item>
+      <label class="item item-input">
+      <textarea placeholder="description">
+      </textarea>
+    </label>
+      </ion-item>
+
+  </div>
+  </script>
 </ion-view>
 
-<div class="float-button">
+<div class="float-button" ng-controller='ModalCtrl' ng-click="openModal()">
   <span class="height-fix">
     <a ui-sref="tab.homework.create" class="content">
       <i class="ion-plus-circled custom-icon"> </i>

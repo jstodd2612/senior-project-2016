@@ -134,7 +134,6 @@ angular.module('juvo', [
     url: '/view',
     templateUrl: 'templates/homework/view.html',
   })
-
   .state('tab.homework.assignment', {
     url: '/assignment',
     templateUrl: 'templates/homework/assignment.html',
@@ -244,7 +243,7 @@ angular.module('juvo', [
   })
   .state('tab.chores.create', {
     url: '/create',
-    templateUrl: 'templates/chores/create.html',
+    templateUrl: 'templates/homeCreate.html',
     controller: 'ChoresCtrl'
   })
   .state('tab.chores.view', {
