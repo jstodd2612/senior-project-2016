@@ -15,7 +15,10 @@ angular.module('modal', [])
       }).then(function(data) {
         modal = data
       })
-      scope.$on('$destroy', $rootScope.$on('$ionicView.beforeLeave', function() { modal.hide() }));
+      scope.$on('$destroy', $rootScope.$on('$ionicView.beforeLeave', function() {
+        if (!modal) return
+        modal.hide()
+      }));
       // Listen to scope destroy events
       scope.$on('$destroy', function() { modal.remove() });
       scope.$watch('show', function(show) {

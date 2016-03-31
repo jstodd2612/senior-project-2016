@@ -33,7 +33,7 @@
 
     <div class="card">
       <div class="item item-divider">
-        <a ui-sref="tab.todos.view">Click me to view todos</a>
+        <a ng-click="showView = true">Click me to view todos</a>
       </div>
       <div class="item item-text-wrap">
         <ul class="list">
@@ -46,14 +46,23 @@
       </div>
     </div>
 
-
+    <modal
+      template="/templates/todos/view.html"
+      animation="slide-in-up"
+      show="showView"
+    ></modal>
   </ion-content>
-</ion-view>
+    <modal
+    template="/templates/todos/create.html"
+    animation="slide-in-up"
+    show="showCreate"
+    ></modal>
 
-<div class="float-button">
-  <span class="height-fix">
-    <a ui-sref="tab.todos.create" class="content">
-      <i class="ion-plus-circled custom-icon"> </i>
-    </a>
-  </span>
-</div>
+    <div class="float-button">
+      <span class="height-fix">
+        <a class="content" ng-click="showCreate = true">
+          <i class="ion-plus-circled custom-icon"></i>
+        </a>
+      </span>
+    </div>
+</ion-view>

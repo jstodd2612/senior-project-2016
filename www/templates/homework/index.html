@@ -69,12 +69,16 @@
     </ion-list>
   </div>
   </ion-content>
+    <modal
+    template="/templates/homework/create.html"
+    animation="slide-in-up"
+    show="showCreate"
+    ></modal>
+    <div class="float-button">
+      <span class="height-fix">
+        <a class="content" ng-click="showCreate = true">
+          <i class="ion-plus-circled custom-icon"> </i>
+        </a>
+      </span>
+    </div>
 </ion-view>
-
-<div class="float-button">
-  <span class="height-fix">
-    <a ui-sref="tab.homework.create" class="content">
-      <i class="ion-plus-circled custom-icon"> </i>
-    </a>
-  </span>
-</div>

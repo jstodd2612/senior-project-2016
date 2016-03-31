@@ -22,20 +22,19 @@
         </div>
       </ion-list>
     </div>
-    
-    <modal
-      template="/templates/chores/create.html"
-      animation="slide-in-up"
-      show="showCreate"
-    ></modal>
+
 
   </ion-content>
+  <modal
+  template="/templates/chores/create.html"
+  animation="slide-in-up"
+  show="showCreate"
+  ></modal>
+  <div class="float-button">
+    <span class="height-fix">
+      <a class="content" ng-click="showCreate = true">
+        <i class="ion-plus-circled custom-icon"> </i>
+      </a>
+    </span>
+  </div>
 </ion-view>
-
-<div class="float-button">
-  <span class="height-fix">
-    <button class="content" ng-click="showCreate = true">
-      <i class="ion-plus-circled custom-icon"> </i>
-    </button>
-  </span>
-</div>

@@ -3,9 +3,8 @@ angular.module('juvo.controllers', [])
 .controller('HomeCtrl', function($scope) {})
 .controller('HomeworkCtrl', function($scope) {})
 .controller('ChoresCtrl', function($scope) {
+  $scope.showView = false;
   $scope.showCreate = false;
-
-  setInterval(() => console.log('test', $scope.showCreate), 1000)
 })
 .controller('ShoppingCtrl', function($scope) {})
 
