@@ -55,16 +55,31 @@ p.homename
   left: 0;
 }
 
-<<<<<<< HEAD
+
 /* homework assignment styling*/
 div.boxed {
-  width: 75px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   border: solid 2px;
   background-color: lightgrey;
-  padding-right:10px;
+  float:left;
 
-=======
+}
+
+div.displayHomework{
+  display: inline-block;
+  float: left;
+
+}
+
+div.alightleft {
+  float:left;
+}
+
+div.alightright {
+    float:right;
+}
+
 /* cREATE Todo/Shopping PAGE STYLING */
 h1.listtitle {
   padding:15px 0px 5px 15px;
@@ -82,5 +97,5 @@ p.chorepg {
   padding:0px 0px 5px 15px;
   font-size: 15px;
   color:#737373;
->>>>>>> b5e67cffa276d6b4b2e85e201f765845e2cb0d8c
+
 }
