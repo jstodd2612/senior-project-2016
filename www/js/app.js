@@ -11,7 +11,8 @@ angular.module('juvo', [
   'juvo.controllers',
   'juvo.services',
   'accordian',
-  'addButt'
+  'addButt',
+  'modal'
 ])
 
 .run(function($ionicPlatform, $rootScope, $state) {
@@ -74,38 +75,6 @@ angular.module('juvo', [
       }
     }
   })
-//   .state('tab.homework', {
-//   abstract: true,
-//   url: '/homework',
-//   views: {
-//     'homework': {
-//       template: '<ion-nav-view></ion-nav-view>'
-//     }
-//   }
-// })
-//   .state('tab.homework.index', {
-//     url: '',
-//     views: {
-//       'homework': {
-//         templateUrl: 'templates/homework/index.html',
-//         controller: 'HomeworkCtrl',
-//         resolve: {
-//           currentAuth: requireAuth
-//         }
-//       }
-//     }
-//   })
-//   .state('tab.homework.create', {
-//     url:'/create',
-//     views: {
-//       'homeworkCreate' : {
-//         templateUrl: 'templates/homework/create.html',
-//         resolve: {
-//           currentAuth: requireAuth
-//         }
-//       }
-//     }
-//   })
 
 //----HOMEWORK ROUTING----//
 
@@ -138,24 +107,6 @@ angular.module('juvo', [
     url: '/assignment',
     templateUrl: 'templates/homework/assignment.html',
   })
-
-
-
-  // .state('tab.expand', {
-  //   url:'/homework/expand',
-  //   views: {
-  //     'homework-expand' : {
-  //       templateUrl: 'templates/homework/expand.html',
-          //  template: '<h1>CREATE HOMEWORK!</h1>',
-          //  controller: function($scope){
-          //    console.log("Not working!!!");
-          //  },
-  //       resolve: {
-  //         currentAuth: requireAuth
-  //       }
-  //     }
-  //   }
-  // })
 
 
   //----TODOS ROUTING----//
@@ -252,42 +203,7 @@ angular.module('juvo', [
     controller: 'ChoresCtrl'
   })
 
-  // .state('tab.chores', {
-  //   url: '/chores',
-  //   views: {
-  //     'chores': {
-  //       templateUrl: 'templates/chores/index.html',
-  //       controller: 'ChoresCtrl',
-  //       resolve: {
-  //         currentAuth: requireAuth
-  //       }
-  //     }
-  //   }
-  // })
-  // .state('tab.chores.create', {
-  //   url:'/create',
-  //   views: {
-  //     'choresCreate' : {
-  //       templateUrl: 'templates/chores/create.html',
-  //       resolve: {
-  //         currentAuth: requireAuth
-  //       }
-  //     }
-  //   }
-  // })
 
-  // .state('tab.todos', {
-  //     url: '/todos',
-  //     views: {
-  //       'todos': {
-  //         templateUrl: 'templates/todos.html',
-  //         controller: 'TodosCtrl',
-  //         resolve: {
-  //           currentAuth: requireAuth
-  //         }
-  //       }
-  //     }
-  //   })
     .state('tab.chat-detail', {
       url: '/chats/:chatId',
       views: {
@@ -301,18 +217,7 @@ angular.module('juvo', [
       }
     })
 
-  // .state('tab.settings', {
-  //   url: '/settings',
-  //   views: {
-  //     'settings': {
-  //       templateUrl: 'templates/settings/account-settings.html',
-  //       controller: 'SettingsCtrl',
-  //       resolve: {
-  //         currentAuth: requireAuth
-  //       }
-  //     }
-  //   }
-  // })
+
   .state('tab.settings', {
     abstract: true,
     url: '/settings',

@@ -17,17 +17,25 @@
                       <button class="button button-positive">
                         View {{group.name}}'s Chores
                       </button>
+                    </a>
           </ion-item>
         </div>
       </ion-list>
     </div>
+    
+    <modal
+      template="/templates/chores/create.html"
+      animation="slide-in-up"
+      show="showCreate"
+    ></modal>
+
   </ion-content>
 </ion-view>
 
 <div class="float-button">
   <span class="height-fix">
-    <a ui-sref="tab.chores.create" class="content">
+    <button class="content" ng-click="showCreate = true">
       <i class="ion-plus-circled custom-icon"> </i>
-    </a>
+    </button>
   </span>
 </div>

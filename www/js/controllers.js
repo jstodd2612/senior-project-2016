@@ -2,7 +2,11 @@ angular.module('juvo.controllers', [])
 
 .controller('HomeCtrl', function($scope) {})
 .controller('HomeworkCtrl', function($scope) {})
-.controller('ChoresCtrl', function($scope) {})
+.controller('ChoresCtrl', function($scope) {
+  $scope.showCreate = false;
+
+  setInterval(() => console.log('test', $scope.showCreate), 1000)
+})
 .controller('ShoppingCtrl', function($scope) {})
 
 .controller('TodosCtrl', function($scope, Chats) {
@@ -28,29 +32,4 @@ angular.module('juvo.controllers', [])
   $scope.settings = {
     enableFriends: false
   };
-})
-.controller('ModalCtrl', function($scope, $ionicModal) {
-  $scope.contact = {
-    name: 'Mittens Cat',
-    info: 'Tap anywhere on the card to open the modal'
-  }
-
-  $ionicModal.fromTemplateUrl('homework-create.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) {
-    $scope.modal = modal
-  })
-
-  $scope.openModal = function() {
-    $scope.modal.show()
-  }
-
-  $scope.closeModal = function() {
-    $scope.modal.hide();
-  };
-
-  $scope.$on('$destroy', function() {
-    $scope.modal.remove();
-  });
 });
