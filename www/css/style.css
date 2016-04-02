@@ -28,6 +28,10 @@
   color: $light;
 }
 
+.float-button:hover{
+  cursor: pointer;
+}
+
 .custom-icon {
   color: #6cc484;
 }

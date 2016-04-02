@@ -1,67 +1,57 @@
 <ion-view view-title="Todos">
   <ion-content>
+    <div ng-controller="ViewTodosCtrl">
 
-    <div class="card">
-      <div class="item item-divider">
-        Reminders
-      </div>
-      <div class="item item-text-wrap">
-        <ul class="list">
-          <li class="item">
+      <div class="card">
+        <div class="item item-divider">
+          Reminders
+        </div>
+        <div class="item item-text-wrap">
+          <ul class="list">
+            <li class="item">
               <i class="ion-android-checkbox-outline-blank"></i> kick you</br>
               <i class="ion-android-checkbox-outline-blank"></i> punch you</br>
               <i class="ion-android-checkbox-outline"></i> slap you
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="item item-divider">
-        I can't
-      </div>
-      <div class="item item-text-wrap">
-        <ul class="list">
-          <li class="item">
+      <div class="card">
+        <div class="item item-divider">
+          I can't
+        </div>
+        <div class="item item-text-wrap">
+          <ul class="list">
+            <li class="item">
               <i class="ion-android-checkbox-outline-blank"></i> kick you</br>
               <i class="ion-android-checkbox-outline-blank"></i> punch you</br>
               <i class="ion-android-checkbox-outline"></i> slap you
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="item item-divider">
-        <a ng-click="showView = true">Click me to view todos</a>
-      </div>
-      <div class="item item-text-wrap">
-        <ul class="list">
-          <li class="item">
+      <div class="card">
+        <div class="item item-divider">
+          <a ng-click="openModal()">Click me to view todos</a>
+        </div>
+        <div class="item item-text-wrap">
+          <ul class="list">
+            <li class="item">
               <i class="ion-android-checkbox-outline-blank"></i> kick you</br>
               <i class="ion-android-checkbox-outline-blank"></i> punch you</br>
               <i class="ion-android-checkbox-outline"></i> slap you
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-
-    <modal
-      template="/templates/todos/view.html"
-      animation="slide-in-up"
-      show="showView"
-    ></modal>
   </ion-content>
-    <modal
-    template="/templates/todos/create.html"
-    animation="slide-in-up"
-    show="showCreate"
-    ></modal>
-
-    <div class="float-button">
+    <div class="float-button" ng-controller="CreateTodosCtrl">
       <span class="height-fix">
-        <a class="content" ng-click="showCreate = true">
-          <i class="ion-plus-circled custom-icon"></i>
+        <a class="content" ng-click="openModal()">
+          <i class="ion-plus-circled custom-icon"> </i>
         </a>
       </span>
     </div>

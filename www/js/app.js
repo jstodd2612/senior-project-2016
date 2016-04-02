@@ -186,23 +186,36 @@ angular.module('juvo', [
 
 
 
-  .state('settings', {
-    abstract: true,
+  // .state('settings', {
+  //   abstract: true,
+  //   url: '/settings',
+  //   views: {
+  //     'settings': {
+  //       template: '<ion-nav-view></ion-nav-view>',
+  //       resolve: {
+  //         currentAuth: requireAuth
+  //       }
+  //     }
+  //   }
+  // })
+  // .state('settings.index', {
+  //   url: '',
+  //   templateUrl: 'templates/settings/index.html',
+  //   controller: 'SettingsCtrl'
+  // });
+
+  .state('tab.settings', {
     url: '/settings',
     views: {
       'settings': {
-        template: '<ion-nav-view></ion-nav-view>',
+        templateUrl: 'templates/settings/index.html',
+        controller: 'SettingsCtrl',
         resolve: {
           currentAuth: requireAuth
         }
       }
     }
   })
-  .state('settings.index', {
-    url: '',
-    templateUrl: 'templates/settings/index.html',
-    controller: 'SettingsCtrl'
-  });
 
 
 

@@ -1,67 +1,57 @@
 <ion-view view-title="Shopping">
   <ion-content>
-
-    <div class="card">
-      <div class="item item-divider">
-        Target
-      </div>
-      <div class="item item-text-wrap">
-        <ul class="list">
-          <li class="item">
+    <div ng-controller="ViewShoppingCtrl">
+      <div class="card">
+        <div class="item item-divider">
+          Target
+        </div>
+        <div class="item item-text-wrap">
+          <ul class="list">
+            <li class="item">
               <i class="ion-android-checkbox-outline-blank"></i> scooter</br>
               <i class="ion-android-checkbox-outline-blank"></i> yoga mat</br>
               <i class="ion-android-checkbox-outline"></i> a child wearing a flying purple people eater
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="item item-divider">
-        Wally World
-      </div>
-      <div class="item item-text-wrap">
-        <ul class="list">
-          <li class="item">
+      <div class="card">
+        <div class="item item-divider">
+          Wally World
+        </div>
+        <div class="item item-text-wrap">
+          <ul class="list">
+            <li class="item">
               <i class="ion-android-checkbox-outline-blank"></i> mimick you</br>
               <i class="ion-android-checkbox-outline-blank"></i> lunch you</br>
               <i class="ion-android-checkbox-outline"></i> clap you
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="item item-divider">
-        <a ng-click="showView = true">Click me to view shopping</a>
-      </div>
-      <div class="item item-text-wrap">
-        <ul class="list">
-          <li class="item">
+      <div class="card">
+        <div class="item item-divider">
+          <a ng-click="openModal()">Click me to view shopping</a>
+        </div>
+        <div class="item item-text-wrap">
+          <ul class="list">
+            <li class="item">
               <i class="ion-android-checkbox-outline-blank"></i> lick you</br>
               <i class="ion-android-checkbox-outline-blank"></i> hunch you</br>
               <i class="ion-android-checkbox-outline"></i> lap you
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-
-    <modal
-    template="/templates/shopping/view.html"
-    animation="slide-in-up"
-    show="showView"
-    ></modal>
   </ion-content>
-  <modal
-  template="/templates/shopping/create.html"
-  animation="slide-in-up"
-  show="showCreate"
-  ></modal>
-  <div class="float-button">
+  <div class="float-button" ng-controller="CreateShoppingCtrl">
     <span class="height-fix">
-      <a class="content" ng-click="showCreate = true">
-        <i class="ion-plus-circled custom-icon"></i>
-      </a>
-    </span>
+        <a class="content" ng-click="openModal()">
+          <i class="ion-plus-circled custom-icon"> </i>
+        </a>
+      </span>
   </div>
 </ion-view>

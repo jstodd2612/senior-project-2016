@@ -38,14 +38,14 @@
         <a class="button button-primary" ng-model="buttonThu" ng-click="buttonThu.clicked=!buttonThu.clicked" ng-class="buttonThu.clicked?'button-balanced':'button-stable'">Thu</a>
         <a class="button button-primary" ng-model="buttonFri" ng-click="buttonFri.clicked=!buttonFri.clicked" ng-class="buttonFri.clicked?'button-balanced':'button-stable'">Fri</a>
         <a class="button button-primary" ng-model="buttonSat" ng-click="buttonSat.clicked=!buttonSat.clicked" ng-class="buttonSat.clicked?'button-balanced':'button-stable'">Sat</a>
-    </div>
-</br>
-    <button class="button button-full button-balanced">Save Chore</button>
+      </div>
+      </br>
+      <button class="button button-full button-balanced" ng-click="closeModal()">Save Chore</button>
 
     </div>
 
   </ion-content>
 </ion-modal-view>
 
-  <!-- </ion-content>
+<!-- </ion-content>
 </ion-view> -->

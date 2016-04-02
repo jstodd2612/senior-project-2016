@@ -45,9 +45,11 @@
     <ion-nav-bar class="bar-stable" ng-controller="LoginCtrl">
       <ion-nav-back-button>
       </ion-nav-back-button>
+      <ion-nav-buttons side="left">
+        <button ui-sref="tab.home">Home</button>
+      </ion-nav-buttons>
       <ion-nav-buttons side="right">
-        <button class="logout" ui-sref="tab.settings.index" ng-click="logout()">Logout</button>
-        <button class="button icon ion-gear-a" ui-sref="settings.index"></button>
+        <button class="button icon ion-gear-a" ui-sref="tab.settings"></button>
       </ion-nav-buttons>
     </ion-nav-bar>
     <!--

@@ -13,7 +13,7 @@ angular.module('juvo.controllers')
       auth.$authWithOAuthPopup(provider)
         .then(function(authData) {
           console.log(authData);
-          $location.path('/#/home');
+          $location.path('/#/tab/home');
         })
         .catch(function(error) {
           console.log(error);
@@ -21,16 +21,14 @@ angular.module('juvo.controllers')
     };
 
     $scope.logout = function() {
-      // if (!auth) { return; }
-      console.log("Logout Ran...");
       auth.$unauth()
-        .then(function(authData) {
-          console.log(authData);
-          $location.path('/#/login');
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
+        // .then(function() {
+        //   console.log(authData);
+        //   $location.path('/#/login');
+        // })
+        // .catch(function(error) {
+        //   console.log(error);
+        // });
     };
 
   }

@@ -3,21 +3,17 @@
     <div ng-controller="accordCtrl">
       <ion-list>
         <div ng-repeat="group in groups">
-          <ion-item class="item-avatar item-icon-right" type="item-text-wrap"
-                    ng-click="toggleGroup(group)"
-                    ng-class="{active: isGroupShown(group)}">
-                    <img ng-src="img/avatar-icons/bull.png">
-                    <p class="homename">Chores for  {{group.name}}</p>
-                    <i class="icon icon-accessory" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
+          <ion-item class="item-avatar item-icon-right" type="item-text-wrap" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
+            <img ng-src="img/avatar-icons/bull.png">
+            <p class="homename">Chores for {{group.name}}</p>
+            <i class="icon icon-accessory" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
           </ion-item>
-          <ion-item class="item-accordion"
-                    ng-repeat="item in group.items"
-                    ng-show="isGroupShown(group)">
-                    <a ui-sref="tab.chores.view">
-                      <button class="button button-positive">
-                        View {{group.name}}'s Chores
-                      </button>
-                    </a>
+          <ion-item class="item-accordion" ng-repeat="item in group.items" ng-show="isGroupShown(group)">
+            <a ui-sref="tab.chores.view">
+              <button class="button button-positive">
+                View {{group.name}}'s Chores
+              </button>
+            </a>
           </ion-item>
         </div>
       </ion-list>
@@ -25,16 +21,11 @@
 
 
   </ion-content>
-  <modal
-  template="/templates/chores/create.html"
-  animation="slide-in-up"
-  show="showCreate"
-  ></modal>
-  <div class="float-button">
+  <div class="float-button" ng-controller="CreateChoresCtrl">
     <span class="height-fix">
-      <a class="content" ng-click="showCreate = true">
-        <i class="ion-plus-circled custom-icon"> </i>
-      </a>
-    </span>
+        <a class="content" ng-click="openModal()">
+          <i class="ion-plus-circled custom-icon"> </i>
+        </a>
+      </span>
   </div>
 </ion-view>
