@@ -95,10 +95,6 @@ angular.module('juvo', [
     templateUrl: 'templates/homework/index.html',
     controller: 'HomeworkCtrl'
   })
-  .state('tab.homework.create', {
-    url: '/create',
-    templateUrl: 'templates/homework/create.html',
-  })
   .state('tab.homework.view', {
     url: '/view',
     templateUrl: 'templates/homework/view.html',
@@ -129,11 +125,6 @@ angular.module('juvo', [
     templateUrl: 'templates/todos/index.html',
     controller: 'TodosCtrl'
   })
-  .state('tab.todos.create', {
-    url: '/create',
-    templateUrl: 'templates/todos/create.html',
-    controller: 'TodosCtrl'
-  })
   .state('tab.todos.view', {
     url: '/view',
     templateUrl: 'templates/todos/view.html',
@@ -158,11 +149,6 @@ angular.module('juvo', [
   .state('tab.shopping.index', {
     url: '',
     templateUrl: 'templates/shopping/index.html',
-    controller: 'ShoppingCtrl'
-  })
-  .state('tab.shopping.create', {
-    url: '/create',
-    templateUrl: 'templates/shopping/create.html',
     controller: 'ShoppingCtrl'
   })
   .state('tab.shopping.view', {
@@ -192,11 +178,6 @@ angular.module('juvo', [
     templateUrl: 'templates/chores/index.html',
     controller: 'ChoresCtrl'
   })
-  .state('tab.chores.create', {
-    url: '/create',
-    templateUrl: 'templates/homeCreate.html',
-    controller: 'ChoresCtrl'
-  })
   .state('tab.chores.view', {
     url: '/view',
     templateUrl: 'templates/chores/view.html',
@@ -204,21 +185,8 @@ angular.module('juvo', [
   })
 
 
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-sub.html',
-          controller: 'ChatDetailCtrl',
-          resolve: {
-            currentAuth: requireAuth
-          }
-        }
-      }
-    })
 
-
-  .state('tab.settings', {
+  .state('settings', {
     abstract: true,
     url: '/settings',
     views: {
@@ -230,7 +198,7 @@ angular.module('juvo', [
       }
     }
   })
-  .state('tab.settings.index', {
+  .state('settings.index', {
     url: '',
     templateUrl: 'templates/settings/index.html',
     controller: 'SettingsCtrl'

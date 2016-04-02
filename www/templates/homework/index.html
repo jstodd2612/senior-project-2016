@@ -61,7 +61,7 @@
 
                   <img ng-src="img/avatar-icons/lion.png">
                   <a class="homename" ui-sref="tab.homework.assignment">Homework for {{group.name}}</a>
-                  <i class="icon icon-accessory" ng-class="isGroupShown(group) ? "></i>
+                  <i class="icon icon-accessory" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
 
         </ion-item>
 
@@ -69,14 +69,9 @@
     </ion-list>
   </div>
   </ion-content>
-    <modal
-    template="/templates/homework/create.html"
-    animation="slide-in-up"
-    show="showCreate"
-    ></modal>
-    <div class="float-button">
+    <div class="float-button" ng-controller="CreateHomeworkCtrl">
       <span class="height-fix">
-        <a class="content" ng-click="showCreate = true">
+        <a class="content" ng-click="openModal()">
           <i class="ion-plus-circled custom-icon"> </i>
         </a>
       </span>
