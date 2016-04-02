@@ -1,51 +1,36 @@
-<!-- <ion-view name="choreCreate" view-title="Create Chore">
-  <ion-content> -->
 <ion-modal-view>
   <ion-content>
-
     <div class="list">
-
       <div class="item item-divider">
         People
       </div>
-
-      <ion-checkbox class="checkbox-balanced">Karen</ion-checkbox>
-      <ion-checkbox class="checkbox-balanced">Timothy</ion-checkbox>
-      <ion-checkbox class="checkbox-balanced">Samantha</ion-checkbox>
-
+        <ion-checkbox ng-repeat="child in chores.children" class="checkbox-balanced">{{child}}</ion-checkbox>
       <div class="item item-divider">
-        Jobs
+        Select Job
       </div>
-
       <ion-item class="item-input item-select">
-        <div class="input-label">
-        </div>
+        <div class="input-label"></div>
         <select>
-          <option selected>Option 1</option>
-          <option>Option 2</option>
+          <option ng-repeat="job in chores.jobs">{{job}}</option>
         </select>
       </ion-item>
-
+      <div class="item item-divider">
+        Select Room
+      </div>
+      <ion-item class="item-input item-select">
+        <div class="input-label"></div>
+        <select>
+          <option ng-repeat="room in chores.rooms">{{room}}</option>
+        </select>
+      </ion-item>
       <div class="item item-divider">
         Schedule
       </div>
-
       <div class="button-bar">
-        <a class="button button-primary" ng-model="buttonSun" ng-click="buttonSun.clicked=!buttonSun.clicked" ng-class="buttonSun.clicked?'button-balanced':'button-stable'">Sun</a>
-        <a class="button button-primary" ng-model="buttonMon" ng-click="buttonMon.clicked=!buttonMon.clicked" ng-class="buttonMon.clicked?'button-balanced':'button-stable'">Mon</a>
-        <a class="button button-primary" ng-model="buttonTue" ng-click="buttonTue.clicked=!buttonTue.clicked" ng-class="buttonTue.clicked?'button-balanced':'button-stable'">Tue</a>
-        <a class="button button-primary" ng-model="buttonWed" ng-click="buttonWed.clicked=!buttonWed.clicked" ng-class="buttonWed.clicked?'button-balanced':'button-stable'">Wed</a>
-        <a class="button button-primary" ng-model="buttonThu" ng-click="buttonThu.clicked=!buttonThu.clicked" ng-class="buttonThu.clicked?'button-balanced':'button-stable'">Thu</a>
-        <a class="button button-primary" ng-model="buttonFri" ng-click="buttonFri.clicked=!buttonFri.clicked" ng-class="buttonFri.clicked?'button-balanced':'button-stable'">Fri</a>
-        <a class="button button-primary" ng-model="buttonSat" ng-click="buttonSat.clicked=!buttonSat.clicked" ng-class="buttonSat.clicked?'button-balanced':'button-stable'">Sat</a>
+        <a ng-repeat="day in chores.days" class="button button-primary" ng-model="buttonDay" ng-click="buttonDay.clicked=!buttonDay.clicked" ng-class="buttonDay.clicked?'button-balanced':'button-stable'">{{day}}</a>
       </div>
       </br>
       <button class="button button-full button-balanced" ng-click="closeModal()">Save Chore</button>
-
     </div>
-
   </ion-content>
 </ion-modal-view>
-
-<!-- </ion-content>
-</ion-view> -->

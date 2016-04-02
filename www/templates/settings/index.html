@@ -1,12 +1,26 @@
-<ion-view name="settings" view-title="Account Settings">
+<ion-view name="settings" view-title="Settings">
   <ion-content>
     <ion-list style="padding-top:100px;">
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
+    <ion-toggle  ng-model="settings.newUser">
+        Create User
+    </ion-toggle>
+    <ion-toggle  ng-model="settings.switch">
+        Switch Account
+    </ion-toggle>
+    <ion-toggle  ng-model="settings.userSettings">
+        User Settings
+    </ion-toggle>
+    <ion-toggle  ng-model="settings.help">
+        Help
+    </ion-toggle>
+    <ion-toggle  ng-model="settings.termAndCond">
+        Terms and Conditions
     </ion-toggle>
     </ion-list>
-    <button class="button button-full button-balanced" ng-click="logout()" ui-sref="login">Logout</button>
   </ion-content>
+  <ion-footer-bar style="padding-bottom:20%;">
+    <button class="button button-full button-balanced" ng-click="logout()" ui-sref="login">Logout</button>
+  </ion-footer-bar>
 </ion-view>
 <!-- <ion-view name="settings">
   <ion-content>

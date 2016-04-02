@@ -2,15 +2,17 @@ angular.module('todosService', [
   'auth',
   'firebaseConfig',
 ])
-.factory('todos', ['auth', 'firebaseHost', '$firebaseArray', '$q', function(auth, host, $firebaseArray, $q) {
+.factory('todos', ['auth', 'fbaseHost', '$firebaseArray', '$q', function(auth, host, $firebaseArray, $q) {
   var todoItems;
 
   function resetUser(authData) {
+    console.log(authData);
     if (!authData) {
       if (todoItems) { todoItems.destroy(); }
       return todoItems = null;
     }
     todoItems = $firebaseArray(new Firebase(host + '/' + authData.uid + '/todos'));
+    console.log(todoItems);
   }
   resetUser(auth.currentUser);
   auth.onChange(resetUser);
