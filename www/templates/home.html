@@ -1,39 +1,18 @@
 <ion-view view-title="Home">
   <ion-content ng-controller="addButtCtrl">
     <div ng-controller="accordCtrl">
-    <ion-list>
-
-      <div ng-repeat="group in groups">
-        <ion-item class="item-avatar item-icon-right" type="item-text-wrap"
-                  ng-click="toggleGroup(group)"
-                  ng-class="{active: isGroupShown(group)}">
-
-                  <img ng-src="img/avatar-icons/turtle.png">
-                  <p class="homename">Group {{group.name}}</p>
-                  <i class="icon icon-accessory" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
-
-        </ion-item>
-        <ion-item class="item-accordion"
-                  ng-repeat="item in group.items"
-                  ng-show="isGroupShown(group)">
-          {{item}}
-
-        </ion-item>
-      </div>
-    </ion-list>
-  </div>
-
+      <ion-list>
+        <div ng-repeat="group in groups">
+          <ion-item class="item-avatar item-icon-right" type="item-text-wrap" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
+            <img ng-src="img/avatar-icons/turtle.png">
+            <p class="homename">{{group.name}}</p>
+            <i class="icon icon-accessory" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
+          </ion-item>
+          <ion-item class="item-accordion" ng-repeat="item in group.items" ng-show="isGroupShown(group)">
+            {{item}}
+          </ion-item>
+        </div>
+      </ion-list>
+    </div>
   </ion-content>
-
-
-
 </ion-view>
-
-
-<div class="float-button">
-  <span class="height-fix">
-    <a ng-click="modal.show()" class="content">
-      <i class="ion-plus-circled custom-icon"> </i>
-    </a>
-  </span>
-</div>

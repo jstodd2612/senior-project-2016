@@ -1,14 +1,18 @@
 <ion-modal-view>
   <ion-content>
     <ion-header-bar>
-      <h1 class="title">New Chore</h1>
+      <h1 class="title">New User</h1>
       <div class="button button-clear" ng-click="modal.hide()"><i class="icon ion-close"></i></div>
     </ion-header-bar>
     <div class="list">
       <div class="item item-divider">
-        People
+        Name
       </div>
-        <ion-checkbox ng-repeat="child in chores.children" class="checkbox-balanced">{{child}}</ion-checkbox>
+      <ion-item>
+        <label class="item item-input">
+          <textarea id="new-user-name" placeholder="description"></textarea>
+        </label>
+      </ion-item>
       <div class="item item-divider">
         Select Job
       </div>
@@ -33,17 +37,8 @@
       <div class="button-bar">
         <a ng-repeat="day in chores.days" class="button button-primary" ng-model="buttonDay" ng-click="buttonDay.clicked=!buttonDay.clicked" ng-class="buttonDay.clicked?'button-balanced':'button-stable'">{{day}}</a>
       </div>
-      <div class="item item-divider">
-        Description
-      </div>
-      <ion-item>
-        <label class="item item-input">
-          <textarea id="assignment-desc" placeholder="description">
-          </textarea>
-        </label>
-      </ion-item>
       </br>
-      <button class="button button-full button-balanced" ng-click="closeModal()">Save Chore</button>
+      <button class="button button-full button-balanced" ng-click="closeModal()">Save User</button>
     </div>
   </ion-content>
 </ion-modal-view>
