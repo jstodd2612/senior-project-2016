@@ -3,6 +3,9 @@ angular.module('juvo.controllers', [])
   .controller('HomeCtrl', function($scope, $ionicModal) {
 
   })
+  .controller('TestingCtrl', function($scope, $ionicModal) {
+
+  })
 
   // TODOS CONTROLLERS //
 
@@ -143,8 +146,22 @@ angular.module('juvo.controllers', [])
   .controller('HomeworkCtrl', function($scope) {
     $scope.homework = {
       children: ['Karen', 'Timothy', 'Samantha', 'Susan'],
-      subject: ['English', 'Science', 'Math', 'History']
+      subject: ['English', 'Science', 'Math', 'History'],
+      assignments: ['History', 'Math', 'Music', 'Computers']
     }
+
+    $scope.groups = ['Overdue', 'This Week', 'Next Week'];
+
+    $scope.toggleGroup = function(group) {
+      if ($scope.isGroupShown(group)) {
+        $scope.shownGroup = null;
+      } else {
+        $scope.shownGroup = group;
+      }
+    };
+    $scope.isGroupShown = function(group) {
+      return $scope.shownGroup === group;
+    };
   })
   .controller('CreateHomeworkCtrl', function($scope, $ionicModal, $controller) {
     angular.extend(this, $controller('HomeworkCtrl', {$scope: $scope}));

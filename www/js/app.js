@@ -185,37 +185,42 @@ angular.module('juvo', [
     controller: 'ChoresCtrl'
   })
 
-
-
-  // .state('settings', {
-  //   abstract: true,
-  //   url: '/settings',
-  //   views: {
-  //     'settings': {
-  //       template: '<ion-nav-view></ion-nav-view>',
-  //       resolve: {
-  //         currentAuth: requireAuth
-  //       }
-  //     }
-  //   }
-  // })
-  // .state('settings.index', {
-  //   url: '',
-  //   templateUrl: 'templates/settings/index.html',
-  //   controller: 'SettingsCtrl'
-  // });
-
   .state('tab.settings', {
+    abstract: true,
     url: '/settings',
     views: {
       'settings': {
-        templateUrl: 'templates/settings/index.html',
-        controller: 'SettingsCtrl',
+        template: '<ion-nav-view></ion-nav-view>',
         resolve: {
           currentAuth: requireAuth
         }
       }
     }
+  })
+  .state('tab.settings.index', {
+    url: '',
+    templateUrl: 'templates/settings/index.html',
+    controller: 'SettingsCtrl'
+  })
+  .state('tab.settings.editUsers', {
+    url: '/editUsers',
+    templateUrl: 'templates/settings/editUsers.html',
+    controller: 'SettingsCtrl'
+  })
+  .state('tab.settings.termsAndCond', {
+    url: '/termsAndCond',
+    templateUrl: 'templates/settings/termsAndCond.html',
+    controller: 'SettingsCtrl'
+  })
+  .state('tab.settings.help', {
+    url: '/help',
+    templateUrl: 'templates/settings/help.html',
+    controller: 'SettingsCtrl'
+  })
+  .state('tab.settings.personalSettings', {
+    url: '/personalSettings',
+    templateUrl: 'templates/settings/personalSettings.html',
+    controller: 'SettingsCtrl'
   })
 
 

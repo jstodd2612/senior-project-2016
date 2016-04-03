@@ -1,24 +1,44 @@
 <ion-view name="settings" view-title="Settings">
   <ion-content>
     <ion-list style="padding-top:100px;">
-    <ion-toggle  ng-model="settings.newUser">
-        Create User
-    </ion-toggle>
-    <ion-toggle  ng-model="settings.switch">
+      <a ui-sref="tab.settings.editUsers">
+        <div class="item item-button-right">
+          Edit Users
+          <button class="button button-clear">
+            <i class="icon ion-chevron-right"></i>
+          </button>
+        </div>
+      </a>
+      <ion-toggle ng-model="settings.switch">
         Switch Account
-    </ion-toggle>
-    <ion-toggle  ng-model="settings.userSettings">
-        User Settings
-    </ion-toggle>
-    <ion-toggle  ng-model="settings.help">
-        Help
-    </ion-toggle>
-    <ion-toggle  ng-model="settings.termAndCond">
-        Terms and Conditions
-    </ion-toggle>
+      </ion-toggle>
+      <a ui-sref="tab.settings.personalSettings">
+        <div class="item item-button-right">
+          Personal Settings
+          <button class="button button-clear">
+            <i class="icon ion-chevron-right"></i>
+          </button>
+        </div>
+      </a>
+      <a ui-sref="tab.settings.termsAndCond">
+        <div class="item item-button-right">
+          Terms and Conditions
+          <button class="button button-clear">
+            <i class="icon ion-chevron-right"></i>
+          </button>
+        </div>
+      </a>
+      <a ui-sref="tab.settings.help">
+        <div class="item item-button-right">
+          Help
+          <button class="button button-clear">
+            <i class="icon ion-chevron-right"></i>
+          </button>
+        </div>
+      </a>
     </ion-list>
   </ion-content>
-  <ion-footer-bar style="padding-bottom:20%;">
+  <ion-footer-bar style="padding-bottom:15%;">
     <button class="button button-full button-balanced" ng-click="logout()" ui-sref="login">Logout</button>
   </ion-footer-bar>
 </ion-view>

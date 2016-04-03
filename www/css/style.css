@@ -1,4 +1,7 @@
 /* add button STYLING */
+a{
+  text-decoration: none;
+}
 .float-button {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;

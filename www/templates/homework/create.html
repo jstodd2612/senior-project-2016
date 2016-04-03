@@ -1,6 +1,10 @@
 <ion-modal-view>
   <ion-content>
-    <div class="list">
+    <ion-header-bar>
+      <h1 class="title">New Homework Assignment</h1>
+      <div class="button button-clear" ng-click="modal.hide()"><i class="icon ion-close"></i></div>
+    </ion-header-bar>
+    <div class="list" style="padding-top:40px;">
       <div class="item item-divider">
         People
       </div>
@@ -19,7 +23,7 @@
       </div>
       <label class="item item-input">
         <span class="input-label">Date</span>
-        <input id="assignment-date" type="date">
+        <input id="assignment-date" type="date"></input>
       </label>
       <div class="item item-divider">
         Description

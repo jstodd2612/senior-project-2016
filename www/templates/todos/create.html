@@ -1,7 +1,10 @@
 <ion-modal-view view-title="Create Todo">
   <ion-content>
-
-    <div class="list">
+    <ion-header-bar>
+      <h1 class="title">Create Todo</h1>
+      <div class="button button-clear" ng-click="modal.hide()"><i class="icon ion-close"></i></div>
+    </ion-header-bar>
+    <div class="list" style="padding-top:40px">
       <label class="item item-input item-clear">
         <i class="icon ion-plus placeholder-icon"></i>
         <input type="text" placeholder="List Title">

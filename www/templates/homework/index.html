@@ -1,57 +1,35 @@
-s<ion-view view-title="Homework">
+<ion-view view-title="Homework">
   <ion-content>
-    <div ng-controller="accordCtrl">
-    <ion-list>
-        <div class="">
-          <ion-item class="item-icon-right" type="item-text-wrap"
-                    ng-click="toggleGroup(group)"
-                    ng-class="{active: isGroupShown(group)}">
-                    <p class="homename">Overdue</p>
-                    <i class="icon icon-accessory" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
+    <div>
+      <ion-list>
+        <div ng-repeat="group in groups">
+          <ion-item class="item-avatar item-icon-right" style="padding-left:30px;" type="item-text-wrap" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
+            <p class="homename">{{group}}</p>
+            <i class="icon icon-accessory" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
           </ion-item>
-          <ion-item class="item-accordion"
-                    ng-repeat="item in group.items"
-                    ng-show="isGroupShown(group)">
-                    <a ui-sref="tab.homework.view">
-                      <button class="button button-positive">
-                        View {{group.name}}'s Assignment
-                      </button>
-                    </a>
-          </ion-item>
+          <a ui-sref="tab.homework.view"  ng-repeat="assignment in homework.assignments">
+            <ion-item  style="padding-left:40px;" class="item-accordion" ng-show="isGroupShown(group)">
+                  {{assignment}}
+            </ion-item>
+          </a>
         </div>
-        <div class="">
-          <ion-item class="item-icon-right" type="item-text-wrap"
-                    ng-click="toggleGroup(group)"
-                    ng-class="{active: isGroupShown(group)}">
-                    <p class="homename">This Week</p>
-                    <i class="icon icon-accessory" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
-          </ion-item>
-        </div>
-        <div class="">
-          <ion-item class="item-icon-right" type="item-text-wrap"
-                    ng-click="toggleGroup(group)"
-                    ng-class="{active: isGroupShown(group)}">
-                    <p class="homename">Next Week</p>
-                    <i class="icon icon-accessory" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
-          </ion-item>
-        </div>
-      <div ng-repeat="group in groups">
-        <ion-item class="item-avatar item-icon-right" type="item-text-wrap"
-                  ng-click="toggleGroup(group)"
-                  ng-class="{active: isGroupShown(group)}">
-                  <img ng-src="img/avatar-icons/lion.png">
-                  <a class="homename" ui-sref="tab.homework.assignment">Homework for {{group.name}}</a>
-                  <i class="icon icon-accessory" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
+      </ion-list>
+    </div>
+    <div ng-repeat="child in homework.children">
+      <a class="homename" ui-sref="tab.homework.assignment">
+        <ion-item class="item-avatar item-icon-right" type="item-text-wrap" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
+          <img ng-src="img/avatar-icons/lion.png">
+          <h2>{{child}}</h2>
+          <i class="icon ion-ios-arrow-right" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
         </ion-item>
-      </div>
-    </ion-list>
-  </div>
+      </a>
+    </div>
   </ion-content>
-    <div class="float-button" ng-controller="CreateHomeworkCtrl">
-      <span class="height-fix">
+  <div class="float-button" ng-controller="CreateHomeworkCtrl">
+    <span class="height-fix">
         <a class="content" ng-click="openModal()">
-          <i class="ion-plus-circled custom-icon"> </i>
+          <i class="ion-plus-circled custom-icon"></i>
         </a>
       </span>
-    </div>
+  </div>
 </ion-view>
