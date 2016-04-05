@@ -12,7 +12,6 @@ angular.module('juvo.controllers')
 
       auth.$authWithOAuthPopup(provider)
         .then(function(authData) {
-          console.log(authData);
           $location.path('/#/tab/home');
         })
         .catch(function(error) {
