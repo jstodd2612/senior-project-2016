@@ -196,7 +196,7 @@ angular.module('juvo.controllers', [])
     enableFriends: false
   };
 })
-.controller('SettingsModalCtrl', function($scope, $ionicModal, $controller) {
+.controller('SettingsUserCtrl', function($scope, $ionicModal, $controller) {
   angular.extend(this, $controller('SettingsCtrl', {$scope: $scope}));
   $ionicModal.fromTemplateUrl('templates/settings/newUser.html', {
     scope: $scope,
@@ -211,6 +211,32 @@ angular.module('juvo.controllers', [])
 
   $scope.closeModal = function() {
     $scope.modal.hide();
+  };
+
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
+})
+
+.controller('LogoutCtrl', function($scope, $ionicModal, $controller) {
+  angular.extend(this, $controller('SettingsCtrl', {$scope: $scope}));
+  $ionicModal.fromTemplateUrl('templates/settings/confirmLogout.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal
+  })
+
+  $scope.openModal = function() {
+    $scope.modal.show()
+  }
+
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+  $scope.modalLogout = function() {
+    $scope.modal.hide();
+    logout();
   };
 
   $scope.$on('$destroy', function() {

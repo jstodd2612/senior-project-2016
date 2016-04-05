@@ -1,0 +1,15 @@
+<ion-modal-view>
+  <ion-content>
+    <ion-header-bar>
+      <h1 class="title">Logout</h1>
+      <div class="button button-clear" ng-click="modal.hide()"><i class="icon ion-close"></i></div>
+    </ion-header-bar>
+      <div class="headerBuffer">
+        <h3 class="logoutHeader">Are you sure you want to logout?</h3>
+      </div>
+      <div class="logoutFooter">
+        <button class="button button-full button-balanced" ng-click="modalLogout()" ui-sref="login">Logout</button>
+        <button class="button button-full button-assertive" ng-click="closeModal()">Cancel</button>
+      </div>
+  </ion-content>
+</ion-modal-view>

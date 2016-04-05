@@ -20,6 +20,14 @@
           </button>
         </div>
       </a>
+      <a ui-sref="tab.settings.personalSettings">
+        <div class="item item-button-right">
+          Notifications
+          <button class="button button-clear">
+            <i class="icon ion-chevron-right"></i>
+          </button>
+        </div>
+      </a>
       <a ui-sref="tab.settings.termsAndCond">
         <div class="item item-button-right">
           Terms and Conditions
@@ -38,8 +46,8 @@
       </a>
     </ion-list>
   </ion-content>
-  <ion-footer-bar style="padding-bottom:15%;">
-    <button class="button button-full button-balanced" ng-click="logout()" ui-sref="login">Logout</button>
+  <ion-footer-bar style="padding-bottom:15%;" ng-controller="LogoutCtrl">
+    <button class="button button-full button-balanced" ng-click="openModal()">Logout</button>
   </ion-footer-bar>
 </ion-view>
 <!-- <ion-view name="settings">

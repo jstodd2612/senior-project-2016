@@ -1,9 +1,10 @@
 <ion-modal-view>
-
+  <ion-header-bar>
+    <h1 class="title">Todo List Title</h1>
+    <div class="button button-clear" ng-click="modal.hide()"><i class="icon ion-close"></i></div>
+  </ion-header-bar>
   <ion-content>
-
     <div class="item item-text-wrap">
-
       <i class="ion-android-checkbox-outline-blank"></i> Todo Item</br>
       <i class="ion-android-checkbox-outline-blank"></i> Todo Item</br>
       <i class="ion-android-checkbox-outline-blank"></i> Todo Item</br>
@@ -11,14 +12,11 @@
       <i class="ion-android-checkbox-outline-blank"></i> Todo Item</br>
       <i class="ion-android-checkbox-outline-blank"></i> Todo Item</br>
       <i class="ion-android-checkbox-outline"></i> Todo Item
-
     </div>
     <label class="item item-input item-clear">
       <i class="icon ion-plus placeholder-icon"></i>
       <input type="text" placeholder="list item">
     </label>
     <button class="button button-full button-balanced" ng-click="closeModal()">Save List</button>
-
-
   </ion-content>
 </ion-modal-view>
