@@ -10,7 +10,7 @@ angular.module('juvo', [
   'auth',
   'juvo.controllers',
   'juvo.services',
-  'todosService',
+  'tasksService',
   'accordian',
   'addButt',
   'modal'

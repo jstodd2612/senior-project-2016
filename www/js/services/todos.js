@@ -1,37 +1,38 @@
-angular.module('todosService', [
+angular.module('tasksService', [
   'auth',
   'firebaseConfig',
 ])
-.factory('todos', ['auth', 'fbaseHost', '$firebaseArray', '$q', function(auth, host, $firebaseArray, $q) {
-  var todoItems;
+.factory('tasks', ['auth', 'fbaseHost', '$firebaseArray', '$q', function(auth, host, $firebaseArray, $q) {
+  var taskItems;
 
   function resetUser(authData) {
-    console.log(authData);
+    console.log("Special Data Would go here");
     if (!authData) {
-      if (todoItems) { todoItems.destroy(); }
-      return todoItems = null;
+      if (taskItems) { taskItems.destroy(); }
+      return taskItems = null;
     }
-    todoItems = $firebaseArray(new Firebase(host + '/' + authData.uid + '/todos'));
-    console.log(todoItems);
+    taskItems = $firebaseArray(new Firebase(host + '/' + authData.uid + '/tasks'));
+    console.log(taskItems);
   }
   resetUser(auth.currentUser);
   auth.onChange(resetUser);
 
   return {
     getItems: function() {
-      return todoItems || [];
+      return taskItems || [];
+      console.log(taskItems);
     },
     addItem: function(item) {
-      if (!todoItems) { return $q.reject(new Error('Could not add an item')); }
-      return todoItems.$add(item);
+      if (!taskItems) { return $q.reject(new Error('Could not add an item')); }
+      return taskItems.$add(item);
     },
     removeItem: function(id) {
-      if (!todoItems) { return $q.reject(new Error('Could not remove the item')); }
-      return todoItems.$remove(id);
+      if (!taskItems) { return $q.reject(new Error('Could not remove the item')); }
+      return taskItems.$remove(id);
     },
     save: function(id) {
-      if (!todoItems) { return $q.reject(new Error('Could not save the item')); }
-      return todoItems.$save(id);
+      if (!taskItems) { return $q.reject(new Error('Could not save the item')); }
+      return taskItems.$save(id);
     },
   };
 
