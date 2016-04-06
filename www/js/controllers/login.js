@@ -2,6 +2,7 @@ angular.module('juvo.controllers')
 .controller('LoginCtrl', [
   '$scope',
   'auth',
+  'users',
   '$location',
   function($scope, auth, $location) {
 

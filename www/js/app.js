@@ -8,6 +8,7 @@
 angular.module('juvo', [
   'ionic',
   'auth',
+  'users',
   'juvo.controllers',
   'juvo.services',
   'tasksService',
