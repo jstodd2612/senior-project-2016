@@ -100,7 +100,8 @@ angular.module('users', [
 
     return {
       initUser: initUser,
-      inviteUser: inviteUser
+      inviteUser: inviteUser,
+      getCurrentUser: normalizeAuthData
     }
 
   }
