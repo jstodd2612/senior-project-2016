@@ -151,3 +151,7 @@ p.chorepg {
 .pointer{
   cursor: pointer;
 }
+
+.showHide{
+  display:none;
+}

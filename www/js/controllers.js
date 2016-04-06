@@ -24,6 +24,7 @@ angular.module('juvo.controllers', ['users'])
       tasks.listByUser($scope.currentUser.id, 'todo')
         .then(function(arr){
           $scope.todos = arr
+          console.log(arr);
         })
     }
 

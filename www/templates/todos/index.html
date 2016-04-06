@@ -3,7 +3,7 @@
     <div ng-controller="ViewTodosCtrl">
       <div class="card" ng-repeat="todo in todos">
         <div class="item item-divider">
-          <a style="background-color:inherit;" href="#" class="item item-icon-right clean-link-icon">
+          <a style="background-color:inherit;" ng-class() class="item item-icon-right clean-link-icon">
             <i class="icon ion-close-round jv-card-icon" ng-click="handleArchiveSubmit()"></i>
             <a class="pointer" ng-click="openModal()">{{todo.title}}</a>
           </a>
@@ -11,7 +11,7 @@
         <div class="item item-text-wrap">
           <ul class="list">
             <li class="item">
-              <i style="padding-right:5px;" class="ion-android-checkbox-outline-blank"></i>{{todo.content}}</br>
+              <ion-checkbox class="checkbox-balanced">{{todo.content}}</ion-checkbox>
             </li>
           </ul>
         </div>
