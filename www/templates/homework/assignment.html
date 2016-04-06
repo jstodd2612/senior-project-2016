@@ -1,21 +1,18 @@
-<ion-view name="homeworkAssignment" view-title="Homework for {{group.name}}">
+<ion-view name="homeworkAssignment" view-title="Haley's Homework">
   <ion-content>
-    <div ng-controller="accordCtrl">
+    <div>
       <ion-list>
-        <ion-item class="item-avatar item-icon-right" type="item-text-wrap">
-          <div>
-            <img ng-src="img/avatar-icons/elephant.png">
-            <p class="homename">Homework for Selected Kid</p>
-          </div>
-        </ion-item>
-        <ion-item>
-          <div class="boxed"></div>
-          <p>No Idea why This had Hate</p>
-        </ion-item>
-        <ion-item>
-          <div class="boxed"></div>
-          <p>Why do we have strange Machines?</p>
-        </ion-item>
+        <div ng-repeat="group in groups">
+          <ion-item class="item-avatar item-icon-right" style="padding-left:30px;" type="item-text-wrap" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
+              <p class="homename">{{group}}</p>
+              <i class="icon icon-accessory" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
+          </ion-item>
+          <a ui-sref="tab.homework.view"  ng-repeat="assignment in homework.group">
+            <ion-item  style="padding-left:40px;" class="item-accordion" ng-show="isGroupShown(group)">
+                  {{assignment}}
+            </ion-item>
+          </a>
+        </div>
       </ion-list>
     </div>
   </ion-content>

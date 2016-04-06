@@ -103,7 +103,7 @@ angular.module('juvo.controllers', [])
       assignments: ['History', 'Math', 'Music', 'Computers']
     }
 
-    $scope.groups = ['Overdue', 'This Week', 'Next Week'];
+    $scope.groups = [['Overdue', 'ThisWeek', 'NextWeek'],['Math:Section 4-7', 'Science : Volcano Project', 'History : Chapter 6']];
 
     $scope.toggleGroup = function(group) {
       if ($scope.isGroupShown(group)) {

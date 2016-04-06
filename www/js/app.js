@@ -104,6 +104,7 @@ angular.module('juvo', [
   .state('tab.homework.assignment', {
     url: '/assignment',
     templateUrl: 'templates/homework/assignment.html',
+    controller: 'HomeworkCtrl'
   })
 
 
