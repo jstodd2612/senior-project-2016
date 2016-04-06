@@ -11,7 +11,7 @@ angular.module('juvo.controllers', ['users'])
 
 // TODOS CONTROLLERS //
 
-.controller('TodosCtrl', function($http, $scope, tasks, $controller) {
+.controller('TodosCtrl', function($state, $scope, tasks, $controller) {
     angular.extend(this, $controller('UserCtrl', {$scope: $scope}));
     // With the new view caching in Ionic, Controllers are only called
     // when they are recreated or on app start, instead of every page change.
@@ -40,7 +40,7 @@ angular.module('juvo.controllers', ['users'])
         .then(function() {
           $scope.createForm = {}
         })
-      $scope.doRefresh();
+      $state.go($state.current, {}, {reload: true});
     }
 
     $scope.doRefresh = function() {
@@ -70,7 +70,7 @@ angular.module('juvo.controllers', ['users'])
 
 // SHOPPING CONTROLLERS //
 
-.controller('ShoppingCtrl', function($scope, tasks, $controller) {
+.controller('ShoppingCtrl', function($state, $scope, tasks, $controller) {
   $scope.taskType = 'shopping'
   angular.extend(this, $controller('UserCtrl', {$scope: $scope}))
 
@@ -96,6 +96,7 @@ angular.module('juvo.controllers', ['users'])
       .then(function() {
         $scope.createForm = {}
       })
+    $state.go($state.current, {}, {reload: true});
   }
   })
   .controller('CreateShoppingCtrl', function($scope, $ionicModal, $controller) {

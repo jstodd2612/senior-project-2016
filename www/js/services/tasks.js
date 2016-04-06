@@ -29,7 +29,6 @@ angular.module('tasks', [
           })
         })
         .then(function(newTask) {
-          // You have the new task!
           return newTask
         })
     }
@@ -44,6 +43,12 @@ angular.module('tasks', [
           })
         })
     }
+
+    // function archiveTask(userId, taskId) {
+    //   return users.getCurrentUser()
+    //     .then(function(user) {
+    //       return task.update({ archived: true }});
+    // }
 
     return {
       create: createTask,
