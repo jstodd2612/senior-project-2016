@@ -17,7 +17,7 @@ angular.module('juvo.controllers')
       if (!provider) { return }
 
       auth.$authWithOAuthPopup(provider, { scope: scopeByProvider[provider] })
-        .then(function(authData) {
+        .then(function() {
           return users.initUser()
         })
         .then(function() {

@@ -11,7 +11,7 @@ angular.module('juvo', [
   'users',
   'juvo.controllers',
   'juvo.services',
-  'tasksService',
+  'tasks',
   'accordian',
   'addButt',
   'jvmodal'
