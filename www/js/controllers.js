@@ -83,13 +83,13 @@ angular.module('juvo.controllers', ['users'])
 
   $scope.$on('$ionicView.enter', function() {
     $scope.getTasks();
-    console.log($scope.createForm);
+    // console.log($scope.createForm);
   })
 
   $scope.createForm = {}
 
   $scope.handleCreateSubmit = function() {
-    console.log($scope.createForm);
+    // console.log($scope.createForm);
     $scope.createForm.type = $scope.taskType
     // $scope.closeModal()
     tasks.create($scope.createForm)
