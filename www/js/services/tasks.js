@@ -13,19 +13,20 @@ angular.module('tasks', [
     var tasks = firebase.child('tasks')
 
     function createTask(data) {
-      var user = users.getCurrentUser()
-      return $firebaseArray(tasks)
-        .$add({
-          title: data.title,
-          content: data.content,
-          createdBy: user.id,
-          assigned: data.assigned,
-          type: data.type,
-          category: data.category,
-          dueDate: data.dueDate,
-          completed: false,
-          archived: false,
-          quantity: data.quantity
+      return users.getCurrentUser()
+        .then(function(user) {
+          return $firebaseArray(tasks).$add({
+            title: data.title,
+            content: data.content,
+            createdBy: user.id,
+            assigned: data.assigned,
+            type: data.type,
+            category: data.category,
+            dueDate: data.dueDate,
+            completed: false,
+            archived: false,
+            quantity: data.quantity
+          })
         })
         .then(function(newTask) {
           // You have the new task!
