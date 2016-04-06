@@ -8,6 +8,11 @@ navigation history that also transitions its views in and out.
 <ion-tabs class="tabs-striped tabs-icon-top tabs-color-balanced">
 
   <!-- Home Tab -->
+  <ion-tab ui-sref="tab.notifications">
+    <ion-nav-view name="notifications"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Home Tab -->
   <ion-tab title="Home" icon-off="ion-android-home" icon-on="ion-android-home" ui-sref="tab.home">
     <ion-nav-view name="home"></ion-nav-view>
   </ion-tab>
@@ -33,7 +38,7 @@ navigation history that also transitions its views in and out.
   </ion-tab>
 
   <!-- Settings Tab -->
-  <ion-tab title="Settings" icon-off="ion-ios-gear" icon-on="ion-ios-gear" ui-sref="tab.settings">
+  <ion-tab ui-sref="tab.settings">
     <ion-nav-view name="settings"></ion-nav-view>
   </ion-tab>
 

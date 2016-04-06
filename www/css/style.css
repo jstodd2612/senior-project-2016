@@ -112,9 +112,26 @@ p.chorepg {
 }
 
 .logoutFooter{
-  margin-top: 40vh;
+  margin-top: 20vh;
 }
 
 .headerBuffer{
   padding-top:20vh;
+}
+
+.home-header-image{
+  margin-top:7px;
+}
+
+.tab-nav.tabs{
+  margin-left: -20vw;
+}
+
+
+.tab-nav.tabs a:last-child.tab-item-active{
+  border: none;
+}
+
+.tabs{
+  width:140%;
 }

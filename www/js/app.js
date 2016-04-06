@@ -13,7 +13,7 @@ angular.module('juvo', [
   'tasksService',
   'accordian',
   'addButt',
-  'modal'
+  'jvmodal'
 ])
 
 .run(function($ionicPlatform, $rootScope, $state) {
@@ -185,6 +185,32 @@ angular.module('juvo', [
     controller: 'ChoresCtrl'
   })
 
+//----CHORES ROUTING----//
+
+  .state('tab.notifications', {
+    abstract: true,
+    url: '/notifications',
+    views: {
+      'notifications': {
+        template: '<ion-nav-view></ion-nav-view>',
+        resolve: {
+          currentAuth: requireAuth
+        }
+      }
+    }
+  })
+
+  .state('tab.notifications.index', {
+    url: '',
+    templateUrl: 'templates/notifications/index.html',
+    controller: 'NotifyCtrl'
+  })
+  .state('tab.notifications.view', {
+    url: '/view',
+    templateUrl: 'templates/notifications/view.html',
+    controller: 'NotifyCtrl'
+  })
+
   .state('tab.settings', {
     abstract: true,
     url: '/settings',
@@ -220,6 +246,11 @@ angular.module('juvo', [
   .state('tab.settings.personalSettings', {
     url: '/personalSettings',
     templateUrl: 'templates/settings/personalSettings.html',
+    controller: 'SettingsCtrl'
+  })
+  .state('tab.settings.notifications', {
+    url: '/notificationSettings',
+    templateUrl: 'templates/settings/notificationSettings.html',
     controller: 'SettingsCtrl'
   })
 

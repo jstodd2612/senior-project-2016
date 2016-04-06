@@ -1,7 +1,9 @@
 angular.module('juvo.controllers', [])
 
-  .controller('HomeCtrl', function($scope, $ionicModal) {
-
+  .controller('HomeCtrl', function($scope, $state, $controller) {
+    $scope.settingsClick = function(){
+      $state.go('settings');
+    }
   })
   .controller('TestingCtrl', function($scope, $ionicModal) {
 
@@ -41,7 +43,7 @@ angular.module('juvo.controllers', [])
       $scope.modal.remove();
     });
   })
-  .controller('ViewTodosCtrl', function($scope, $ionicModal) {
+  .controller('ViewTodosCtrl', function($scope, $ionicModal, $controller) {
     $ionicModal.fromTemplateUrl('templates/todos/view.html', {
       scope: $scope,
       animation: 'slide-in-up'
@@ -67,45 +69,13 @@ angular.module('juvo.controllers', [])
   .controller('ShoppingCtrl', function($scope, $ionicModal) {
 
   })
-  .controller('CreateShoppingCtrl', function($scope, $ionicModal) {
-    $ionicModal.fromTemplateUrl('templates/shopping/create.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function(modal) {
-      $scope.modal = modal
-    })
-
-    $scope.openModal = function() {
-      $scope.modal.show()
-    }
-
-    $scope.closeModal = function() {
-      $scope.modal.hide();
-    };
-
-    $scope.$on('$destroy', function() {
-      $scope.modal.remove();
-    });
+  .controller('CreateShoppingCtrl', function($scope, $ionicModal, $controller) {
+  $scope.template = 'templates/shopping/create.html';
+  angular.extend(this, $controller('appModalCtrl', {$scope: $scope}));
   })
-  .controller('ViewShoppingCtrl', function($scope, $ionicModal) {
-    $ionicModal.fromTemplateUrl('templates/shopping/view.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function(modal) {
-      $scope.modal = modal
-    })
-
-    $scope.openModal = function() {
-      $scope.modal.show()
-    }
-
-    $scope.closeModal = function() {
-      $scope.modal.hide();
-    };
-
-    $scope.$on('$destroy', function() {
-      $scope.modal.remove();
-    });
+  .controller('ViewShoppingCtrl', function($scope, $ionicModal, $controller) {
+    $scope.template = 'templates/shopping/view.html';
+    angular.extend(this, $controller('appModalCtrl', {$scope: $scope}));
   })
 
   // CHORES CONTROLLERS //
@@ -120,25 +90,8 @@ angular.module('juvo.controllers', [])
   })
   .controller('CreateChoresCtrl', function($scope, $ionicModal, $controller) {
     angular.extend(this, $controller('ChoresCtrl', {$scope: $scope}));
-
-    $ionicModal.fromTemplateUrl('templates/chores/create.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function(modal) {
-      $scope.modal = modal
-    })
-
-    $scope.openModal = function() {
-      $scope.modal.show()
-    }
-
-    $scope.closeModal = function() {
-      $scope.modal.hide();
-    };
-
-    $scope.$on('$destroy', function() {
-      $scope.modal.remove();
-    });
+    $scope.template = 'templates/chores/create.html';
+    angular.extend(this, $controller('appModalCtrl', {$scope: $scope}));
   })
 
   // HOMEWORK CONTROLLERS //
@@ -165,25 +118,8 @@ angular.module('juvo.controllers', [])
   })
   .controller('CreateHomeworkCtrl', function($scope, $ionicModal, $controller) {
     angular.extend(this, $controller('HomeworkCtrl', {$scope: $scope}));
-
-    $ionicModal.fromTemplateUrl('templates/homework/create.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function(modal) {
-      $scope.modal = modal
-    })
-
-    $scope.openModal = function() {
-      $scope.modal.show()
-    }
-
-    $scope.closeModal = function() {
-      $scope.modal.hide();
-    };
-
-    $scope.$on('$destroy', function() {
-      $scope.modal.remove();
-    });
+    $scope.template = 'templates/homework/create.html';
+    angular.extend(this, $controller('appModalCtrl', {$scope: $scope}));
   })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
@@ -198,48 +134,41 @@ angular.module('juvo.controllers', [])
 })
 .controller('SettingsUserCtrl', function($scope, $ionicModal, $controller) {
   angular.extend(this, $controller('SettingsCtrl', {$scope: $scope}));
-  $ionicModal.fromTemplateUrl('templates/settings/newUser.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) {
-    $scope.modal = modal
-  })
-
-  $scope.openModal = function() {
-    $scope.modal.show()
-  }
-
-  $scope.closeModal = function() {
-    $scope.modal.hide();
-  };
-
-  $scope.$on('$destroy', function() {
-    $scope.modal.remove();
-  });
+  $scope.template = 'templates/settings/newUser.html';
+  angular.extend(this, $controller('appModalCtrl', {$scope: $scope}));
 })
 
 .controller('LogoutCtrl', function($scope, $ionicModal, $controller) {
   angular.extend(this, $controller('SettingsCtrl', {$scope: $scope}));
-  $ionicModal.fromTemplateUrl('templates/settings/confirmLogout.html', {
+  $scope.template = 'templates/settings/confirmLogout.html';
+  angular.extend(this, $controller('appModalCtrl', {$scope: $scope}));
+})
+
+.controller('NotifyCtrl', function($scope, $ionicModal, $controller) {
+  angular.extend(this, $controller('SettingsCtrl', {$scope: $scope}));
+  $scope.template = 'templates/settings/confirmLogout.html';
+  angular.extend(this, $controller('appModalCtrl', {$scope: $scope}));
+})
+
+.controller('appModalCtrl', function($scope, $ionicModal, $controller) {
+
+  $ionicModal.fromTemplateUrl($scope.template, {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function(modal) {
     $scope.modal = modal
   })
-
   $scope.openModal = function() {
     $scope.modal.show()
   }
-
   $scope.closeModal = function() {
     $scope.modal.hide();
-  };
+  }
   $scope.modalLogout = function() {
     $scope.modal.hide();
     logout();
   };
-
   $scope.$on('$destroy', function() {
     $scope.modal.remove();
-  });
-})
+  })
+});
