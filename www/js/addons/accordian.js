@@ -7,7 +7,7 @@ angular.module('accordian', ['ionic'])
     // console.log($scope.groups[i]);
     $scope.groups[i] = {
       name: $scope.groups[i],
-      items: ['item1']
+      items: ['Homework', 'Chores', 'Shopping Requests']
     };
     // console.log($scope.groups[i]);
     for (var j=0; j<0; j++) {
