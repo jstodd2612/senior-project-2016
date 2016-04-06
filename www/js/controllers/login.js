@@ -8,10 +8,15 @@ angular.module('juvo.controllers')
 
     $scope.errorMessage = ''
 
+    var scopeByProvider = {
+      google: 'email',
+      facebook: 'email'
+    }
+
     $scope.login = function(provider) {
       if (!provider) { return }
 
-      auth.$authWithOAuthPopup(provider)
+      auth.$authWithOAuthPopup(provider, { scope: scopeByProvider[provider] })
         .then(function(authData) {
           return users.initUser()
         })
