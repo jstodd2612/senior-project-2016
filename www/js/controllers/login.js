@@ -4,32 +4,29 @@ angular.module('juvo.controllers')
   'auth',
   'users',
   '$location',
-  function($scope, auth, $location) {
+  function($scope, auth, users, $location) {
 
-    $scope.errorMessage = '';
+    $scope.errorMessage = ''
 
     $scope.login = function(provider) {
-      if (!provider) { return; }
+      if (!provider) { return }
 
       auth.$authWithOAuthPopup(provider)
         .then(function(authData) {
-          $location.path('/#/tab/home');
+          return users.initUser()
+        })
+        .then(function() {
+          $location.path('/#/tab/home')
         })
         .catch(function(error) {
-          console.log(error);
-        });
-    };
+          console.log(error)
+        })
+    }
 
     $scope.logout = function() {
       auth.$unauth()
-        // .then(function() {
-        //   console.log(authData);
-        //   $location.path('/#/login');
-        // })
-        // .catch(function(error) {
-        //   console.log(error);
-        // });
-    };
+      $location.path('/#/login')
+    }
 
   }
-]);
+])
