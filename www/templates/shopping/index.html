@@ -1,57 +1,28 @@
 <ion-view view-title="Shopping">
   <ion-content>
     <div ng-controller="ViewShoppingCtrl">
-      <div class="card">
+      <div class="card" ng-repeat="shop in shopping">
         <div class="item item-divider">
-          Target
+          <a style="background-color:inherit;" href="#" class="item item-icon-right clean-link-icon">
+            <i class="icon ion-close-round jv-card-icon" ng-click="handleArchiveSubmit()"></i>
+            <a class="pointer" ng-click="openModal()">{{shop.title}}</a>
+          </a>
         </div>
         <div class="item item-text-wrap">
           <ul class="list">
             <li class="item">
-              <i class="ion-android-checkbox-outline-blank"></i> scooter</br>
-              <i class="ion-android-checkbox-outline-blank"></i> yoga mat</br>
-              <i class="ion-android-checkbox-outline"></i> flying purple people eater
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="item item-divider">
-          Wally World
-        </div>
-        <div class="item item-text-wrap">
-          <ul class="list">
-            <li class="item">
-              <i class="ion-android-checkbox-outline-blank"></i> Towels</br>
-              <i class="ion-android-checkbox-outline-blank"></i> Lunch box</br>
-              <i class="ion-android-checkbox-outline"></i> Buzz Lightyear
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="item item-divider">
-          <a ng-click="openModal()">Click me to view shopping</a>
-        </div>
-        <div class="item item-text-wrap">
-          <ul class="list">
-            <li class="item">
-              <i class="ion-android-checkbox-outline-blank"></i> New Keys</br>
-              <i class="ion-android-checkbox-outline-blank"></i> Post Hole Digger</br>
-              <i class="ion-android-checkbox-outline"></i> New star
+              <i style="padding-right:5px;" class="ion-android-checkbox-outline-blank"></i>{{shop.content}}</br>
             </li>
           </ul>
         </div>
       </div>
     </div>
   </ion-content>
-  <div class="float-button" ng-controller="CreateShoppingCtrl">
-    <span class="height-fix">
+    <div class="float-button" ng-controller="CreateShoppingCtrl">
+      <span class="height-fix">
         <a class="content" ng-click="openModal()">
-          <i class="ion-plus-circled custom-icon"> </i>
+          <i class="ion-plus-circled custom-icon"></i>
         </a>
       </span>
-  </div>
+    </div>
 </ion-view>

@@ -1,6 +1,7 @@
 /* add button STYLING */
 a{
   text-decoration: none;
+  color: inherit;
 }
 .float-button {
   -webkit-border-radius: 50%;
@@ -134,4 +135,19 @@ p.chorepg {
 
 .tabs{
   width:140%;
+}
+
+.item-icon-right .jv-card-icon{
+  font-size:18px;
+  right:-8px;
+  top:-8px;
+}
+
+.clean-link-icon{
+  border:none;
+  float:right;
+}
+
+.pointer{
+  cursor: pointer;
 }

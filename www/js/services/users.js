@@ -68,7 +68,7 @@ angular.module('users', [
               }
             })
             .then(function() {
-              console.log(newUserData)
+              // console.log(newUserData)
               user.family = newUserData.family
               user.type = newUserData.type
               user.name = newUserData.name
@@ -82,7 +82,7 @@ angular.module('users', [
       var invite = $firebaseObject(invites.child(email))
 
       return invite.$loaded().then(function() {
-        console.log(invite)
+        // console.log(invite)
         return invite.family ? invite : false
       })
     }

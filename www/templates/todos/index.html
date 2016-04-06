@@ -1,44 +1,17 @@
 <ion-view view-title="Todos">
   <ion-content>
     <div ng-controller="ViewTodosCtrl">
-      <div class="card">
+      <div class="card" ng-repeat="todo in todos">
         <div class="item item-divider">
-          Reminders
+          <a style="background-color:inherit;" href="#" class="item item-icon-right clean-link-icon">
+            <i class="icon ion-close-round jv-card-icon" ng-click="handleArchiveSubmit()"></i>
+            <a class="pointer" ng-click="openModal()">{{todo.title}}</a>
+          </a>
         </div>
         <div class="item item-text-wrap">
           <ul class="list">
             <li class="item">
-              <i class="ion-android-checkbox-outline-blank"></i> Wash Car</br>
-              <i class="ion-android-checkbox-outline-blank"></i> Clean Dog</br>
-              <i class="ion-android-checkbox-outline"></i> Finish building App
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="card">
-        <div class="item item-divider">
-          I can't
-        </div>
-        <div class="item item-text-wrap">
-          <ul class="list">
-            <li class="item">
-              <i class="ion-android-checkbox-outline-blank"></i> Wash Car</br>
-              <i class="ion-android-checkbox-outline-blank"></i> Clean Dog</br>
-              <i class="ion-android-checkbox-outline"></i> Finish building App
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="card">
-        <div class="item item-divider">
-          <a ng-click="openModal()">Click me to view todos</a>
-        </div>
-        <div class="item item-text-wrap">
-          <ul class="list">
-            <li class="item">
-              <i class="ion-android-checkbox-outline-blank"></i> Wash Car</br>
-              <i class="ion-android-checkbox-outline-blank"></i> Clean Dog</br>
-              <i class="ion-android-checkbox-outline"></i> Finish building App
+              <i style="padding-right:5px;" class="ion-android-checkbox-outline-blank"></i>{{todo.content}}</br>
             </li>
           </ul>
         </div>
@@ -48,7 +21,7 @@
     <div class="float-button" ng-controller="CreateTodosCtrl">
       <span class="height-fix">
         <a class="content" ng-click="openModal()">
-          <i class="ion-plus-circled custom-icon"> </i>
+          <i class="ion-plus-circled custom-icon"></i>
         </a>
       </span>
     </div>

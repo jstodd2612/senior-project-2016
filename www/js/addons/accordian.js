@@ -1,7 +1,7 @@
 angular.module('accordian', ['ionic'])
 
 .controller('accordCtrl', function($scope) {
-  $scope.groups = ['Karen', 'Timothy', 'Samantha', 'Susan'];
+  $scope.groups = ['Haley', 'Jack'];
 
   for (var i=0; i<$scope.groups.length; i++) {
     // console.log($scope.groups[i]);
