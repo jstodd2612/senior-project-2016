@@ -48,7 +48,7 @@ angular.module('users', [
           return user.$loaded()
         })
         .then(function(user) {
-          if (user.family) return
+          if (user.family) return user
 
           var newUserData = { name: authData.name }
 
