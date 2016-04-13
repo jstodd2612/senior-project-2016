@@ -215,3 +215,7 @@ h2.hw-assign{
 .task-btn-left{
   right:60px !important;
 }
+
+.clean-input{
+  background-color:inherit;
+}

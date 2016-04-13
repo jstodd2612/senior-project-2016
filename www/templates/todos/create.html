@@ -9,8 +9,8 @@
           <input type="text" ng-model="createForm.title" placeholder="Title">
         </label>
         <div class="item item-input-inset"  ng-repeat="subTask in createForm.subTasks track by $index">
-          <label class="item-input-wrapper">
-            <input type="text" ng-model="subTask.title" placeholder="item">
+          <label class="item-input-wrapper clean-input">
+            <input type="text" ng-model="subTask.title" placeholder="Items">
           </label>
           <button class="button button-small button-assertive" ng-click="removeCreateSubTask($index)">
             X
@@ -18,9 +18,9 @@
         </div>
         <form ng-submit="addCreateSubTask(createForm.newSubTask)">
           <div class="item item-input-inset item-clear">
-            <label class="item-input-wrapper">
+            <label class="item-input-wrapper clean-input">
               <i class="icon ion-plus placeholder-icon"></i>
-              <input type="text" ng-model="createForm.newSubTask" placeholder="list item">
+              <input type="text" ng-model="createForm.newSubTask" placeholder="Items">
             </label>
             <button class="button button-small button-positive">
               Add
