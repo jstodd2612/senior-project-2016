@@ -1,28 +1,18 @@
-<ion-view view-title="Shopping List">
+<ion-view view-title="To Do List">
   <ion-content>
-    <div ng-controller="ViewShoppingCtrl">
-      <div class="card" ng-repeat="shop in shopping">
-        <div class="item item-divider">
-          <a style="background-color:inherit;" href="#" class="item item-icon-right clean-link-icon">
-            <i class="icon ion-close-round jv-card-icon" ng-click="handleArchiveSubmit()"></i>
-            <a class="pointer" ng-click="openModal()">{{shop.title}}</a>
-          </a>
-        </div>
-        <div class="item item-text-wrap">
-          <ul class="list">
-            <li class="item">
-              <ion-checkbox style="margin-left:-25px;" class="checkbox-balanced">{{shop.content}}</ion-checkbox>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <task-listing
+      user="currentUser"
+      tasks="shoppingLists"
+      type="shopping"
+      show-create="showCreate"
+      create-template="templates/shopping/create.html"
+    ></task-listing>
   </ion-content>
-    <div class="float-button" ng-controller="CreateShoppingCtrl">
-      <span class="height-fix">
-        <a class="content" ng-click="openModal()">
-          <i class="ion-plus-circled custom-icon"></i>
-        </a>
-      </span>
-    </div>
+  <div class="float-button">
+    <span class="height-fix">
+      <a class="content" ng-click="showModal()">
+        <i class="ion-plus-circled custom-icon"></i>
+      </a>
+    </span>
+  </div>
 </ion-view>

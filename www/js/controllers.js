@@ -33,35 +33,18 @@ angular.module('juvo.controllers', ['users'])
 
 // SHOPPING CONTROLLERS //
 
-.controller('ShoppingCtrl', function($state, $scope, tasks, $controller) {
-  $scope.taskType = 'shopping'
-  angular.extend(this, $controller('UserCtrl', {$scope: $scope}))
-
-  $scope.getTasks = function(){
-    tasks.listByUser($scope.currentUser.id, $scope.taskType)
-      .then(function(arr){
-        $scope.shopping = arr
-      })
+.controller('ShoppingCtrl', function($state, $scope, $controller, currentAuth, shoppingLists, $ionicModal) {
+  angular.extend(this, $controller('UserCtrl', {$scope: $scope}));
+  $scope.shoppingLists = shoppingLists
+  $scope.currentUser = currentAuth
+  $scope.showCreate = false
+  $scope.showModal = function() {
+    $scope.showCreate = true
+    setTimeout(function() {
+      $scope.showCreate = false
+    }, 0)
   }
-
-  $scope.$on('$ionicView.enter', function() {
-    $scope.getTasks();
-    // console.log($scope.createForm);
-  })
-
-  $scope.createForm = {}
-
-  $scope.handleCreateSubmit = function() {
-    // console.log($scope.createForm);
-    $scope.createForm.type = $scope.taskType
-    // $scope.closeModal()
-    tasks.create($scope.createForm)
-      .then(function() {
-        $scope.createForm = {}
-      })
-    $state.go($state.current, {}, {reload: true});
-  }
-  })
+})
   .controller('CreateShoppingCtrl', function($scope, $ionicModal, $controller) {
     $scope.template = 'templates/shopping/create.html';
     angular.extend(this, $controller('AppModalCtrl', {$scope: $scope}));
