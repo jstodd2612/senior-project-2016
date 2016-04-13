@@ -57,7 +57,7 @@ angular.module('juvo', [
         })
         .catch(function(err) {
           if (!err.type) {
-            err.type = 'AUTH_REQURED'
+            err.type = 'AUTH_REQUIRED'
           }
           throw err
         })
