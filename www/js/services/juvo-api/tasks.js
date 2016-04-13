@@ -2,7 +2,7 @@ angular
 .module('juvo-api.tasks', [
   'juvo-api'
 ])
-.service('juvoUsers', [
+.service('juvoTasks', [
   '$http',
   'juvoApiHost',
   function($http, host) {
