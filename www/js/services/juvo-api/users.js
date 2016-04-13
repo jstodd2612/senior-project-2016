@@ -17,9 +17,9 @@ angular
         .then(returnData)
     }
 
-    this.list = function(data) {
+    this.list = function() {
       return $http
-        .get(host + '/users', data)
+        .get(host + '/users')
         .then(returnData)
     }
 

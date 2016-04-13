@@ -239,7 +239,22 @@ angular.module('juvo', [
   .state('tab.chores.index', {
     url: '',
     templateUrl: 'templates/chores/index.html',
-    controller: 'ChoresCtrl'
+    controller: 'ChoresCtrl',
+    resolve: {
+      currentAuth: requireAuth(),
+      members: ['juvoTasks', 'juvoUsers', '$q', function(tasks, users, $q) {
+        return users.list().then(function(members) {
+          return $q.all(members.map(function(member) {
+            return tasks.listByUser(member.id).then(function(memberTasks) {
+              member.chores = memberTasks.filter(function(memberTask) {
+                return memberTask.type === 'chore'
+              })
+              return member
+            })
+          }))
+        })
+      }]
+    }
   })
   .state('tab.chores.view', {
     url: '/view',

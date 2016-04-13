@@ -12,6 +12,7 @@ angular.module('juvo-api.view', [
       interface: '=',
       showCreate: '=',
       createTemplate: '@',
+      mainTemplate: '@',
       type: '@'
     },
     templateUrl: 'templates/directives/task-listing.html',
@@ -21,6 +22,11 @@ angular.module('juvo-api.view', [
       'juvoTasks',
       'juvoUsers',
       function($scope, $ionicModal, tasks, users) {
+
+        $scope.foo = 'bar'
+
+        $scope.mainTemplate = $scope.mainTemplate || 'templates/directives/general-list.html'
+
 
         $scope.$watch('showCreate', function(val) {
           if (val) {

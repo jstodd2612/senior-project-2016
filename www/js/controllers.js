@@ -56,12 +56,64 @@ angular.module('juvo.controllers', ['users'])
 
 // CHORES CONTROLLERS //
 
-.controller('ChoresCtrl', function($scope) {
+.controller('ChoresCtrl', function($scope, $ionicModal, $q, currentAuth, members, juvoTasks) {
     $scope.chores = {
-      children: ['Karen', 'Timothy', 'Samantha', 'Susan'],
-      jobs: ['Sweep', 'Clean', 'Dishes', 'Vacuum'],
-      rooms: ['Kitchen', 'Bathrooms', 'Bedrooms', 'Backyard'],
+      // children: ['Karen', 'Timothy', 'Samantha', 'Susan'],
+      // jobs: ['Sweep', 'Clean', 'Dishes', 'Vacuum'],
+      // rooms: ['Kitchen', 'Bathrooms', 'Bedrooms', 'Backyard'],
       days: ['Sun', 'M', 'T', 'W', 'R', 'F', 'S']
+    }
+    $scope.members = members
+    $scope.activeMembers = {}
+    $scope.createForm = {}
+
+    $scope.toggleActive = function(id) {
+      $scope.activeMembers[id] = !$scope.activeMembers[id]
+    }
+
+    $ionicModal.fromTemplateUrl('templates/chores/create.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.createModal = modal
+    })
+
+    $scope.handleCreateSubmit = function() {
+      var assignedMembers = Object
+        .keys($scope.createForm.assigned || {})
+        .filter(function(memberId) {
+          return $scope.createForm.assigned[memberId]
+        })
+
+      var promises = assignedMembers.map(function(memberId) {
+        return juvoTasks
+          .assignTask(memberId, {
+            type: 'chore',
+            title: $scope.createForm.title,
+            meta: $scope.createForm.meta,
+            subTasks: Object.keys($scope.createForm.subTasks).map(function(key) {
+              return $scope.createForm.subTasks[key]
+            })
+          })
+          .then(function(task) {
+            var index = -1
+            $scope.members.some(function(member, i) {
+              if (member.id === memberId) {
+                index = i
+                return true
+              }
+              return false
+            })
+            if (index === -1) return
+            $scope.members[index].chores.push(task)
+          })
+      })
+
+      $q.all(promises)
+        .then(function() {
+          $scope.createModal.hide()
+          $scope.createForm = {}
+        })
     }
   })
   .controller('CreateChoresCtrl', function($scope, $ionicModal, $controller) {

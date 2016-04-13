@@ -2,38 +2,38 @@
   <ion-content>
     <ion-header-bar>
       <h1 class="title">New Chore</h1>
-      <div class="button button-clear" ng-click="modal.hide()"><i class="icon ion-close"></i></div>
+      <div class="button button-clear" ng-click="createModal.hide()"><i class="icon ion-close"></i></div>
     </ion-header-bar>
     <div class="list">
       <div class="item item-divider">
         People
       </div>
-        <ion-checkbox ng-repeat="child in chores.children" class="checkbox-balanced">{{child}}</ion-checkbox>
-        <div class="item item-divider">
-          Chore Title
-        </div>
+      <ion-checkbox ng-repeat="member in members" class="checkbox-balanced" ng-model="createForm.assigned[member.id]">{{member.firstName}}</ion-checkbox>
+      <div class="item item-divider">
+        Chore Title
+      </div>
 
-          <label class="item item-input">
-            <input type="text" placeholder="Ex. Wash Dishes">
-          </label>
+      <label class="item item-input">
+        <input type="text" ng-model="createForm.title" placeholder="Ex. Wash Dishes">
+      </label>
 
       <div class="item item-divider">
         Schedule
       </div>
       <div class="button-bar">
-        <a ng-repeat="day in chores.days" class="button button-primary" ng-model="buttonDay" ng-click="buttonDay.clicked=!buttonDay.clicked" ng-class="buttonDay.clicked?'button-balanced':'button-stable'">{{day}}</a>
+        <a ng-repeat="day in chores.days" class="button button-primary" ng-model="createForm.meta.days[day]" ng-click="createForm.meta.days[day]=!createForm.meta.days[day]" ng-class="createForm.meta.days[day]?'button-balanced':'button-stable'">{{day}}</a>
       </div>
       <div class="item item-divider">
         Description
       </div>
       <ion-item>
         <label class="item item-input">
-          <textarea id="assignment-desc" placeholder="description">
+          <textarea id="assignment-desc" placeholder="description" ng-model="createForm.subTasks[0].title">
           </textarea>
         </label>
       </ion-item>
       </br>
-      <button class="button button-full button-balanced" ng-click="closeModal()">Save Chore</button>
+      <button class="button button-full button-balanced" ng-click="handleCreateSubmit()">Save Chore</button>
     </div>
   </ion-content>
 </ion-modal-view>

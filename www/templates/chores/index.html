@@ -1,27 +1,23 @@
 <ion-view view-title="Chores">
   <ion-content>
-    <div ng-controller="accordCtrl">
+    <div>
       <ion-list>
-        <div ng-repeat="group in groups">
-          <ion-item class="item-avatar item-icon-right" type="item-text-wrap" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
-            <img ng-src="img/avatar-icons/0008.png">
-            <p class="homename">Chores for {{group.name}}</p>
-            <i class="icon icon-accessory" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
+        <div ng-repeat="member in members track by member.id">
+          <ion-item class="item-avatar item-icon-right" type="item-text-wrap" ng-click="toggleActive(member.id)" ng-class="{active: activeMembers[member.id]}">
+            <img ng-src="img/avatar-icons/0014.png">
+            <p class="homename">{{member.firstName}}</p>
+            <i class="icon icon-accessory" ng-class="activeMembers[member.id] ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
           </ion-item>
-          <ion-item class="item-accordion" ng-repeat="item in group.items" ng-show="isGroupShown(group)">
-            <a ui-sref="tab.chores.view">
-              <button class="button button-positive">
-                View {{group.name}}'s Chores
-              </button>
-            </a>
+          <ion-item class="item-accordion" ng-repeat="chore in member.chores" ng-show="activeMembers[member.id]">
+            {{ chore.title }} - {{ chore.subTasks[0].title }}
           </ion-item>
         </div>
       </ion-list>
     </div>
   </ion-content>
-  <div class="float-button" ng-controller="CreateChoresCtrl">
+  <div class="float-button">
     <span class="height-fix">
-        <a class="content" ng-click="openModal()">
+        <a class="content" ng-click="createModal.show()">
           <i class="ion-plus-circled custom-icon"> </i>
         </a>
       </span>
