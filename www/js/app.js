@@ -36,7 +36,10 @@ angular.module('juvo', [
   $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
     // We can catch the error thrown when the $requireAuth promise is rejected
     // and redirect the user back to the home page
-    if (error === 'AUTH_REQUIRED') { $state.go('login'); }
+    switch (error.type) {
+      case 'AUTH_REQUIRED': $state.go('login'); break
+      case 'FORBIDDEN': $state.go('home'); break
+    }
   });
 })
 
@@ -46,10 +49,18 @@ angular.module('juvo', [
       return auth.current()
         .then(function(user) {
           if (role && user.role !== role) {
-            throw new Error('You do not have access to this page')
+            var error = new Error('You do not have access to this page')
+            error.type = 'FORBIDDEN'
+            throw error
           }
           return user
-        });
+        })
+        .catch(function(err) {
+          if (!err.type) {
+            err.type = 'AUTH_REQURED'
+          }
+          throw err
+        })
     }]
   }
   var familyMembers = ['juvoUsers', function(users) {
@@ -256,7 +267,14 @@ angular.module('juvo', [
   .state('tab.settings.editUsers', {
     url: '/editUsers',
     templateUrl: 'templates/settings/editUsers.html',
-    controller: 'SettingsCtrl'
+    controller: 'SettingsUserCtrl',
+    resolve: {
+      currentAuth: requireAuth(),
+      members: familyMembers,
+      invites: ['juvoUsers', function(users) {
+        return users.listInvites()
+      }]
+    }
   })
   .state('tab.settings.termsAndCond', {
     url: '/termsAndCond',

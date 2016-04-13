@@ -166,10 +166,33 @@ angular.module('juvo.controllers', ['users'])
       enableFriends: false
     };
   })
-  .controller('SettingsUserCtrl', function($scope, $ionicModal, $controller) {
+  .controller('SettingsUserCtrl', function($scope, $ionicModal, $controller, juvoUsers, currentAuth, members, invites) {
     angular.extend(this, $controller('SettingsCtrl', {$scope: $scope}));
     $scope.template = 'templates/settings/newUser.html';
     angular.extend(this, $controller('AppModalCtrl', {$scope: $scope}));
+
+    $scope.inviteForm = {
+      email: ''
+    }
+
+    $scope.sendInvite = function(email) {
+      console.log($scope.inviteForm.email)
+      juvoUsers.invite(email)
+        .then(function(invite) {
+          $scope.inviteForm.email = ''
+          $scope.closeModal()
+          $scope.invites.push(invite)
+        })
+        .catch(function(err) {
+          $scope.inviteForm.email = ''
+          console.log('error in inviting')
+          $scope.closeModal()
+        })
+    }
+
+    $scope.currentAuth = currentAuth
+    $scope.members = members
+    $scope.invites = invites
   })
 
 .controller('LogoutCtrl', function($scope, $ionicModal, $controller) {

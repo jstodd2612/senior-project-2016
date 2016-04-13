@@ -2,14 +2,20 @@
   <ion-content>
     <div ng-controller="accordCtrl">
       <ion-list>
-        <ion-item>
-          Typically you'll come here and be able to edit and create new users to your family. Hooray!
+        <ion-item ng-repeat="member in members">
+          {{ member.firstName }} {{ member.lastName }}
+          <span ng-show="member.id === currentAuth.id">(You)</span>
+        </ion-item>
+        <ion-item class="item-divider" ng-show="invites.length">
+          Pending Invites:
+        </ion-item>
+        <ion-item ng-repeat="invite in invites | filter: {claimed: false}">
+          {{ invite.email }}
         </ion-item>
       </ion-list>
-
     </div>
   </ion-content>
-  <ion-footer-bar style="padding-bottom:15%;" ng-controller="SettingsUserCtrl">
+  <ion-footer-bar style="padding-bottom:15%;">
     <button class="button button-full button-balanced" ng-click="openModal()">Invite to Your Family</button>
   </ion-footer-bar>
 </ion-view>
