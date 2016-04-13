@@ -160,7 +160,21 @@ angular.module('juvo', [
   .state('tab.todos.index', {
     url: '',
     templateUrl: 'templates/todos/index.html',
-    controller: 'TodosCtrl'
+    controller: 'TodosCtrl',
+    resolve: {
+      currentAuth: requireAuth(),
+      todos: ['juvoTasks', 'juvoAuth', function(tasks, auth) {
+        return auth.current()
+          .then(function(user) {
+            return tasks.listByUser(user.id)
+          })
+          .then(function(tasks) {
+            return tasks.filter(function(task) {
+              return task.type === 'todo'
+            })
+          })
+      }]
+    }
   })
   .state('tab.todos.view', {
     url: '/view',

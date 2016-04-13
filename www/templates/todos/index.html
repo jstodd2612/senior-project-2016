@@ -1,12 +1,12 @@
 <ion-view view-title="Todos">
   <ion-content>
-    <div ng-controller="ViewTodosCtrl">
+    <div>
       <div class="card" ng-repeat="todo in todos">
         <div class="item item-divider">
           <a style="background-color:inherit;" class="item item-icon-right clean-link-icon">
             <i class="icon ion-close-round jv-card-delete" ng-click="handleDeleteSubmit()"></i>
             <i class="icon ion-archive jv-card-archive" ng-click="handleArchiveSubmit()"></i>
-            <a class="pointer" ng-click="openModal()">{{todo.title}}</a>
+            <a class="pointer" ng-click="viewModal.show()">{{todo.title}}</a>
           </a>
         </div>
         <div class="item item-text-wrap">
@@ -19,9 +19,9 @@
       </div>
     </div>
   </ion-content>
-    <div class="float-button" ng-controller="CreateTodosViewCtrl">
+    <div class="float-button">
       <span class="height-fix">
-        <a class="content" ng-click="openModal()">
+        <a class="content" ng-click="createModel.show()">
           <i class="ion-plus-circled custom-icon"></i>
         </a>
       </span>

@@ -1,7 +1,7 @@
 <ion-modal-view>
   <ion-header-bar>
     <h1 class="title">Todo List Title</h1>
-    <div class="button button-clear" ng-click="modal.hide()"><i class="icon ion-close"></i></div>
+    <div class="button button-clear" ng-click="viewModal.hide()"><i class="icon ion-close"></i></div>
   </ion-header-bar>
   <ion-content>
     <div class="item item-text-wrap">
@@ -17,6 +17,6 @@
       <i class="icon ion-plus placeholder-icon"></i>
       <input type="text" placeholder="list item">
     </label>
-    <button class="button button-full button-balanced" ng-click="closeModal()">Save List</button>
+    <button class="button button-full button-balanced" ng-click="viewModal.hide()">Save List</button>
   </ion-content>
 </ion-modal-view>

@@ -11,51 +11,36 @@ angular.module('juvo.controllers', ['users'])
 
 // TODOS CONTROLLERS //
 
-.controller('TodosCtrl', function($state, $scope, tasks, $controller) {
+  .controller('TodosCtrl', function($state, $scope, juvoTasks, $controller, currentAuth, todos, $ionicModal) {
     angular.extend(this, $controller('UserCtrl', {$scope: $scope}));
-    // With the new view caching in Ionic, Controllers are only called
-    // when they are recreated or on app start, instead of every page change.
-    // To listen for when this page is active (for example, to refresh data),
-    // listen for the $ionicView.enter event:
-    //
-    //$scope.$on('$ionicView.enter', function(e) {
-    //});
-    $scope.getTasks = function(){
-      tasks.listByUser($scope.currentUser.id, 'todo')
-        .then(function(arr){
-          $scope.todos = arr
-          console.log(arr);
-        })
-    }
-
-    $scope.$on('$ionicView.enter', function() {
-      $scope.getTasks();
-    })
+    $scope.todos = todos
 
     $scope.createForm = {}
 
     $scope.handleCreateSubmit = function() {
       $scope.createForm.type = 'todo'
-      $scope.closeModal()
-      tasks.create($scope.createForm)
-        .then(function() {
+      $scope.createModel.hide()
+      juvoTasks.assignTask(currentAuth.id, $scope.createForm)
+        .then(function(todo) {
+          $scope.todos.push(todo)
           $scope.createForm = {}
         })
-      $state.go($state.current, {}, {reload: true});
+      // $state.go($state.current, {}, {reload: true});
     }
 
-    $scope.doRefresh = function() {
-    $http.get('/todos')
-     .success(function() {
-       $scope.getTasks()
-     })
-     .finally(function() {
-       // Stop the ion-refresher from spinning
-       $scope.$broadcast('scroll.refreshComplete');
-     });
-  };
+    $ionicModal.fromTemplateUrl('templates/todos/create.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.createModel = modal
+    })
 
-
+    $ionicModal.fromTemplateUrl('templates/todos/view.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.viewModal = modal
+    })
 
   })
   .controller('CreateTodosViewCtrl', function($scope, $ionicModal, $controller) {
