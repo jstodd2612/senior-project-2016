@@ -255,7 +255,7 @@ angular.module('juvo', [
   .state('tab.chores.view', {
     url: '/view',
     templateUrl: 'templates/chores/view.html',
-    controller: 'ChoresCtrl'
+    // controller: 'ChoresCtrl'
   })
 
 //----CHORES ROUTING----//
