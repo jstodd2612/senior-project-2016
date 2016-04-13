@@ -2,10 +2,42 @@
   <ion-content>
     <div class="login-wrapper">
       <img class="logo" src="img/juvologo.png" />
-      <br>
+      <!-- <br>
       <img class="logo" src="img/FbookLogin.png" ng-click="login('facebook')" style="cursor:pointer;"/>
       <br>
-      <img class="logo" src="img/GoogleLogin.png" style="cursor:pointer;" ng-click="login('google')"/>
+      <img class="logo" src="img/GoogleLogin.png" style="cursor:pointer;" ng-click="login('google')"/> -->
+
+      <br />
+      <form class="login-form-wrapper" ng-submit="submit(signinType, loginForm)">
+        <ion-list>
+          <ion-radio ng-model="signinType" ng-value="'login2'">Login</ion-radio>
+          <ion-radio ng-model="signinType" ng-value="'signup'">Sign up</ion-radio>
+        </ion-list>
+        <br />
+        <div class="list">
+          <label class="item item-input item-floating-label">
+            <span class="input-label">Email</span>
+            <input type="text" placeholder="Email" ng-model="loginForm.email">
+          </label>
+          <label class="item item-input item-floating-label">
+            <span class="input-label">Password</span>
+            <input type="password" placeholder="Password" ng-model="loginForm.password">
+          </label>
+          <label class="item item-input item-floating-label" ng-show="signinType === 'signup'">
+            <span class="input-label">First Name</span>
+            <input type="text" placeholder="First Name" ng-model="loginForm.firstName">
+          </label>
+          <label class="item item-input item-floating-label" ng-show="signinType === 'signup'">
+            <span class="input-label">Last Name</span>
+            <input type="text" placeholder="Last Name" ng-model="loginForm.lastName">
+          </label>
+        </div>
+        <button class="button button-block button-positive">
+          Submit
+        </button>
+        {{ errorMessage }}
+      </form>
     </div>
+
   </ion-content>
 </ion-view>

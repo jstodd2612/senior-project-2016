@@ -2,7 +2,7 @@
   padding-top: 70px;
 }
 
-.login-form input {
+/*.login-form input {
   border: 0;
   border-top: 2px solid rgb(192, 192, 192);
   width: 100%;
@@ -13,10 +13,15 @@
 
 .login-form input:last-child {
   border-bottom: 2px solid rgb(192, 192, 192);
-}
+}*/
 
 .login-wrapper {
   padding-top: 70px;
+}
+
+.login-form-wrapper {
+  max-width: 700px;
+  margin: auto;
 }
 
 .logo {

@@ -41,9 +41,20 @@ angular.module('juvo', [
 })
 
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
-  var requireAuth = ['auth', function(auth) {
-    return auth.$requireAuth();
-  }];
+  var requireAuth = function(role) {
+    return ['juvoAuth', function(auth) {
+      return auth.current()
+        .then(function(user) {
+          if (role && user.role !== role) {
+            throw new Error('You do not have access to this page')
+          }
+          return user
+        });
+    }]
+  }
+  var familyMembers = ['juvoUsers', function(users) {
+    return users.list()
+  }]
   $ionicConfigProvider.tabs.position('bottom');
 
   // Ionic uses AngularUI Router which uses the concept of states
@@ -74,7 +85,8 @@ angular.module('juvo', [
         templateUrl: 'templates/home.html',
         controller: 'HomeCtrl',
         resolve: {
-          currentAuth: requireAuth
+          currentAuth: requireAuth(),
+          members: familyMembers
         }
       }
     }
@@ -89,7 +101,7 @@ angular.module('juvo', [
       'homework': {
         template: '<ion-nav-view></ion-nav-view>',
         resolve: {
-          currentAuth: requireAuth
+          currentAuth: requireAuth()
         }
       }
     }
@@ -128,7 +140,7 @@ angular.module('juvo', [
       'todos': {
         template: '<ion-nav-view></ion-nav-view>',
         resolve: {
-          currentAuth: requireAuth
+          currentAuth: requireAuth()
         }
       }
     }
@@ -154,7 +166,7 @@ angular.module('juvo', [
       'shopping': {
         template: '<ion-nav-view></ion-nav-view>',
         resolve: {
-          currentAuth: requireAuth
+          currentAuth: requireAuth()
         }
       }
     }
@@ -181,7 +193,7 @@ angular.module('juvo', [
       'chores': {
         template: '<ion-nav-view></ion-nav-view>',
         resolve: {
-          currentAuth: requireAuth
+          currentAuth: requireAuth()
         }
       }
     }
@@ -207,7 +219,7 @@ angular.module('juvo', [
       'notifications': {
         template: '<ion-nav-view></ion-nav-view>',
         resolve: {
-          currentAuth: requireAuth
+          currentAuth: requireAuth()
         }
       }
     }
@@ -231,7 +243,7 @@ angular.module('juvo', [
       'settings': {
         template: '<ion-nav-view></ion-nav-view>',
         resolve: {
-          currentAuth: requireAuth
+          currentAuth: requireAuth()
         }
       }
     }

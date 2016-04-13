@@ -1,18 +1,16 @@
 <ion-view title='<img title="Juvo Home" class="home-header-image" src="../img/juvoTextSm.png" />'>
   <ion-content ng-controller="addButtCtrl">
-    <div ng-controller="accordCtrl">
-      <ion-list>
-        <div ng-repeat="group in groups">
-          <ion-item class="item-avatar item-icon-right" type="item-text-wrap" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
-            <img ng-src="img/avatar-icons/turtle.png">
-            <p class="homename">{{group.name}}</p>
-            <i class="icon icon-accessory" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
-          </ion-item>
-          <ion-item class="item-accordion" ng-repeat="item in group.items" ng-show="isGroupShown(group)">
-            {{item}}
-          </ion-item>
-        </div>
-      </ion-list>
-    </div>
+    <ion-list>
+      <div ng-repeat="member in members track by member.id">
+        <ion-item class="item-avatar item-icon-right" type="item-text-wrap" ng-click="toggleActive(member.id)" ng-class="{active: activeMembers[member.id]}">
+          <img ng-src="img/avatar-icons/turtle.png">
+          <p class="homename">{{member.firstName}}</p>
+          <i class="icon icon-accessory" ng-class="activeMembers[member.id] ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
+        </ion-item>
+        <ion-item class="item-accordian" ng-repeat="item in taskTypes" ng-show="activeMembers[member.id]">
+          {{ item.label }} - /users/{{ member.id }}/tasks/{{ item.value }}
+        </ion-item>
+      </div>
+    </ion-list>
   </ion-content>
 </ion-view>
