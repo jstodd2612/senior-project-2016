@@ -1,4 +1,4 @@
-<ion-modal-view view-title="Create Todo">
+<ion-modal-view view-title="Create To-do">
   <ion-content>
     <ion-header-bar>
       <h1 class="title">{{createForm.title}}</h1>
@@ -6,11 +6,11 @@
     </ion-header-bar>
       <div class="list" style="padding-top:40px">
         <label class="item item-input item-clear">
-          <input type="text" ng-model="createForm.title" placeholder="List Title">
+          <input type="text" ng-model="createForm.title" placeholder="Title">
         </label>
         <div class="item item-input-inset"  ng-repeat="subTask in createForm.subTasks track by $index">
           <label class="item-input-wrapper">
-            <input type="text" ng-model="subTask.title" >
+            <input type="text" ng-model="subTask.title" placeholder="item">
           </label>
           <button class="button button-small button-assertive" ng-click="removeCreateSubTask($index)">
             X

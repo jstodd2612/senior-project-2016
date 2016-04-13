@@ -5,9 +5,6 @@ angular.module('juvo.controllers', ['users'])
       $state.go('settings');
     }
   })
-  .controller('TestingCtrl', function($scope, $ionicModal) {
-
-  })
 
 // TODOS CONTROLLERS //
 
