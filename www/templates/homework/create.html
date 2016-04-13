@@ -10,13 +10,10 @@
       </div>
         <ion-checkbox ng-repeat="child in homework.children" class="checkbox-balanced">{{child}}</ion-checkbox>
       <div class="item item-divider">
-        Select Subject
+        Assignment Title
       </div>
-      <ion-item class="item-input item-select">
-        <div class="input-label"></div>
-        <select>
-            <option ng-repeat="subject in homework.subject">{{subject}}</option>
-        </select>
+      <ion-item class="item-input">
+        <input type="text" placeholder="Math Ch. 12" />
       </ion-item>
       <div class="item item-divider">
         Due Date
@@ -29,9 +26,8 @@
         Description
       </div>
       <ion-item>
-        <label class="item item-input">
-          <textarea id="assignment-desc" placeholder="description">
-          </textarea>
+        <label class="item-input">
+          <textarea placeholder="Optional"></textarea>
         </label>
       </ion-item>
       <button class="button button-full button-balanced" ng-click="closeModal()">Create Assignment</button>

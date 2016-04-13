@@ -1,4 +1,4 @@
-<ion-view name="homeworkAssignment" view-title="Haley's Homework">
+<ion-view name="childsHomework" view-title="Haley's Homework">
   <ion-content>
     <div>
       <ion-list>
@@ -8,8 +8,10 @@
               <i class="icon icon-accessory" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
           </ion-item>
           <a ui-sref="tab.homework.view"  ng-repeat="assignment in homework.group">
-            <ion-item  style="padding-left:40px;" class="item-accordion" ng-show="isGroupShown(group)">
-                  {{assignment}}
+            <ion-item style="padding-left:40px;" class="item-avatar item-accordion item-icon-right" ng-show="isGroupShown(group)">
+              <div class="circle past"><p>Mar</p><p>11</p></div>
+              <h2 class="hw-assign">{{assignment}}</h2>
+              <i class="icon icon-accessory ion-chevron-right"></i>
             </ion-item>
           </a>
         </div>

@@ -1,44 +1,22 @@
 <ion-modal-view>
   <ion-content>
     <ion-header-bar>
-      <h1 class="title">New User</h1>
+      <h1 class="title">User Invite</h1>
       <div class="button button-clear" ng-click="modal.hide()"><i class="icon ion-close"></i></div>
     </ion-header-bar>
-    <div class="list">
-      <div class="item item-divider">
-        Name
-      </div>
+    <div class="list modal-header">
       <ion-item>
         <label class="item item-input">
-          <textarea id="new-user-name" placeholder="description"></textarea>
+          <input type="email" placeholder="John Smith">
         </label>
       </ion-item>
-      <div class="item item-divider">
-        Select Job
-      </div>
-      <ion-item class="item-input item-select">
-        <div class="input-label"></div>
-        <select>
-          <option ng-repeat="job in chores.jobs">{{job}}</option>
-        </select>
+      <ion-item>
+        <label class="item item-input">
+          <input type="email" placeholder="john.smith@email.com">
+        </label>
       </ion-item>
-      <div class="item item-divider">
-        Select Room
-      </div>
-      <ion-item class="item-input item-select">
-        <div class="input-label"></div>
-        <select>
-          <option ng-repeat="room in chores.rooms">{{room}}</option>
-        </select>
-      </ion-item>
-      <div class="item item-divider">
-        Schedule
-      </div>
-      <div class="button-bar">
-        <a ng-repeat="day in chores.days" class="button button-primary" ng-model="buttonDay" ng-click="buttonDay.clicked=!buttonDay.clicked" ng-class="buttonDay.clicked?'button-balanced':'button-stable'">{{day}}</a>
-      </div>
-      </br>
-      <button class="button button-full button-balanced" ng-click="closeModal()">Save User</button>
+
+      <button class="button button-full button-balanced" ng-click="closeModal()">Send Invite!</button>
     </div>
   </ion-content>
 </ion-modal-view>

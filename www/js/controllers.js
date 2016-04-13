@@ -205,11 +205,13 @@ angular.module('juvo.controllers', ['users'])
   }).then(function(modal) {
     $scope.modal = modal
   })
-  $scope.openModal = function() {
+  $scope.openModal = function(taskId) {
     $scope.modal.show()
+    $scope.taskId = taskId
   }
-  $scope.closeModal = function() {
+  $scope.closeModal = function(taskId) {
     $scope.modal.hide();
+    $scope.taskId = taskId
   }
   $scope.modalLogout = function() {
     $scope.modal.hide();

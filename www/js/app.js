@@ -100,11 +100,20 @@ angular.module('juvo', [
   })
   .state('tab.homework.view', {
     url: '/view',
+    // resolve: {
+    //   selectedTask: function($stateParams, tasks, users) {
+    //     return user
+    //       .getCurrentUser()
+    //       .then(function(user) {
+    //         return tasks.getTask(user.id, $stateParams.id)
+    //       })
+    //   },
+    // },
     templateUrl: 'templates/homework/view.html',
   })
-  .state('tab.homework.assignment', {
-    url: '/assignment',
-    templateUrl: 'templates/homework/assignment.html',
+  .state('tab.homework.childView', {
+    url: '/childView',
+    templateUrl: 'templates/homework/childView.html',
     controller: 'HomeworkCtrl'
   })
 
@@ -130,16 +139,7 @@ angular.module('juvo', [
     controller: 'TodosCtrl'
   })
   .state('tab.todos.view', {
-    url: '/:todoId',
-    resolve: {
-      selectedTask: function($stateParams, tasks, users) {
-        return user
-          .getCurrentUser()
-          .then(function(user) {
-            return tasks.getTask(user.id, $statParams.id)
-          })
-      },
-    },
+    url: '/view',
     templateUrl: 'templates/todos/view.html',
     controller: 'TodosCtrl'
   })

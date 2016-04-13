@@ -12,8 +12,8 @@ a{
   font-size: 70px;
   background: $warning;
   position: fixed;
-  bottom: 60px; /* Adjust to where you want it */
-  right: 25px; /* Adjust to where you want it */
+  bottom: 10vh; /* Adjust to where you want it */
+  right: 5vw; /* Adjust to where you want it */
   z-index: 9999;
 }
 
@@ -37,7 +37,7 @@ a{
 }
 
 .custom-icon {
-  color: #6cc484;
+  color: #33cd5f;
 }
 
 /* button animation*/
@@ -139,13 +139,23 @@ p.chorepg {
 
 .item-icon-right .jv-card-archive{
   font-size:30px;
-  right:-3px;
+  right:0px;
   top:0px;
 }
 .item-icon-right .jv-card-delete{
   font-size:30px;
   right:40px;
   top:0px;
+}
+.item-icon-right .jv-card-archive:hover{
+  font-size:35px;
+  cursor:pointer;
+  color:#33cd5f;
+}
+.item-icon-right .jv-card-delete:hover{
+  font-size:35px;
+  cursor:pointer;
+  color:#33cd5f;
 }
 
 .clean-link-icon{
@@ -159,4 +169,39 @@ p.chorepg {
 
 .showHide{
   display:none;
+}
+
+.circle{
+  border-radius:50%;
+	width:50px;
+	height:50px;
+  text-align:center;
+  line-height:1em;
+  padding-top:10px;
+  float:left;
+  margin-right:20px;
+}
+
+.circle>p{
+  color:#fff;
+}
+
+h2.hw-assign{
+  margin-top:1.25%;
+}
+
+.past{
+  background-color: #EE4D39;
+}
+
+.present{
+  background-color: #33cd5f;
+}
+
+.future{
+  background-color: #F0B840;
+}
+
+.modal-header{
+  padding-top:5vh;
 }
