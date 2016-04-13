@@ -10,7 +10,6 @@ angular.module('juvo', [
   'auth',
   'users',
   'juvo.controllers',
-  'juvo.services',
   'juvo-api',
   'tasks',
   'accordian',
