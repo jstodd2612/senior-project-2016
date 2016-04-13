@@ -1,17 +1,17 @@
 <ion-modal-view>
   <ion-header-bar>
-    <h1 class="title">Todo List Title</h1>
+    <h1 class="title">{{ selectedTodo.title }}</h1>
     <div class="button button-clear" ng-click="viewModal.hide()"><i class="icon ion-close"></i></div>
   </ion-header-bar>
   <ion-content>
     <div class="item item-text-wrap">
-      <i class="ion-android-checkbox-outline-blank"></i> Todo Item</br>
-      <i class="ion-android-checkbox-outline-blank"></i> Todo Item</br>
-      <i class="ion-android-checkbox-outline-blank"></i> Todo Item</br>
-      <i class="ion-android-checkbox-outline-blank"></i> Todo Item</br>
-      <i class="ion-android-checkbox-outline-blank"></i> Todo Item</br>
-      <i class="ion-android-checkbox-outline-blank"></i> Todo Item</br>
-      <i class="ion-android-checkbox-outline"></i> Todo Item
+      <div ng-repeat="subTask in selectedTodo.subTasks">
+        <i
+          ng-class="subTask.completed ? 'ion-android-checkbox-outline' : 'ion-android-checkbox-outline-blank'"
+        >
+          {{ subTask.title }}
+        </i>
+      </div>
     </div>
     <label class="item item-input item-clear">
       <i class="icon ion-plus placeholder-icon"></i>

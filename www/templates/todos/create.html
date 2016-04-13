@@ -8,11 +8,27 @@
         <label class="item item-input item-clear">
           <input type="text" ng-model="createForm.title" placeholder="List Title">
         </label>
-        <label class="item item-input item-clear">
-          <i class="icon ion-plus placeholder-icon"></i>
-          <input type="text" ng-model="createForm.subTasks" placeholder="list item">
-        </label>
+        <div class="item item-input-inset"  ng-repeat="subTask in createForm.subTasks track by $index">
+          <label class="item-input-wrapper">
+            <input type="text" ng-model="subTask.title" >
+          </label>
+          <button class="button button-small button-assertive" ng-click="removeCreateSubTask($index)">
+            X
+          </button>
+        </div>
+        <form ng-submit="addCreateSubTask(createForm.newSubTask)">
+          <div class="item item-input-inset item-clear">
+            <label class="item-input-wrapper">
+              <i class="icon ion-plus placeholder-icon"></i>
+              <input type="text" ng-model="createForm.newSubTask" placeholder="list item">
+            </label>
+            <button class="button button-small button-positive">
+              Add
+            </button>
+          </div>
+        </form>
       </div>
       <button class="button button-full button-balanced" ng-click="handleCreateSubmit()">Save Todo</button>
+      <div ng-show="createForm.error">{{ createForm.error }}</div>
   </ion-content>
 </ion-modal-view>

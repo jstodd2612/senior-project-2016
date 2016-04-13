@@ -25,7 +25,13 @@ angular
 
     this.updateTask = function(userId, taskId, task) {
       return $http
-        .post(host + '/users/' + userId + '/tasks/' + taskId, task)
+        .put(host + '/users/' + userId + '/tasks/' + taskId, task)
+        .then(returnData)
+    }
+
+    this.deleteTask = function(userId, taskId) {
+      return $http
+        .delete(host + '/users/' + userId + '/tasks/' + taskId)
         .then(returnData)
     }
 

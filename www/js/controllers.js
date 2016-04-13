@@ -15,24 +15,50 @@ angular.module('juvo.controllers', ['users'])
     angular.extend(this, $controller('UserCtrl', {$scope: $scope}));
     $scope.todos = todos
 
-    $scope.createForm = {}
+    $scope.createForm = {
+      subTasks: []
+    }
+
+    $scope.selectedTodo = null
 
     $scope.handleCreateSubmit = function() {
       $scope.createForm.type = 'todo'
-      $scope.createModel.hide()
+      $scope.createForm.error = null
       juvoTasks.assignTask(currentAuth.id, $scope.createForm)
         .then(function(todo) {
           $scope.todos.push(todo)
-          $scope.createForm = {}
+          $scope.createForm = {
+            subTasks: []
+          }
+          $scope.createModal.hide()
+        })
+        .catch(function(response) {
+          $scope.createForm.error = response.data.message
         })
       // $state.go($state.current, {}, {reload: true});
+    }
+
+    $scope.handleDeleteSubmit = function(deletedTodo) {
+      juvoTasks.deleteTask(currentAuth.id, deletedTodo.id)
+        .then(function() {
+          $scope.todos = $scope.todos.filter(function(todo) {
+            return todo.id !== deletedTodo.id
+          })
+        })
+    }
+
+    $scope.updateTodo = function(todo) {
+      juvoTasks.updateTask(currentAuth.id, todo.id, todo)
+        .then(function(updatedTodo) {
+
+        })
     }
 
     $ionicModal.fromTemplateUrl('templates/todos/create.html', {
       scope: $scope,
       animation: 'slide-in-up'
     }).then(function(modal) {
-      $scope.createModel = modal
+      $scope.createModal = modal
     })
 
     $ionicModal.fromTemplateUrl('templates/todos/view.html', {
@@ -41,6 +67,22 @@ angular.module('juvo.controllers', ['users'])
     }).then(function(modal) {
       $scope.viewModal = modal
     })
+
+    $scope.showTodo = function(todo) {
+      $scope.selectedTodo = todo
+      $scope.viewModal.show()
+    }
+
+    $scope.addCreateSubTask = function(title) {
+      $scope.createForm.subTasks.push({
+        title: title
+      })
+      $scope.createForm.newSubTask = ''
+    }
+
+    $scope.removeCreateSubTask = function(index) {
+      $scope.createForm.subTasks.splice(index, 1)
+    }
 
   })
   .controller('CreateTodosViewCtrl', function($scope, $ionicModal, $controller) {
