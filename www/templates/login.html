@@ -7,5 +7,19 @@
       <br>
       <img class="logo" src="img/GoogleLogin.png" style="cursor:pointer;" ng-click="login('google')"/>
     </div>
+
+    <form ng-submit="login2(loginForm.email, loginForm.password)">
+      <label>
+        Email
+        <input type="text" ng-model="loginForm.email" />
+      </label>
+      <label>
+        Password
+        <input type="password" ng-model="loginForm.password" />
+      </label>
+      <button>Submit</button>
+      {{ errorMessage }}
+    </form>
+
   </ion-content>
 </ion-view>

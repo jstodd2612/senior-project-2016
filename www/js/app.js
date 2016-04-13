@@ -41,8 +41,8 @@ angular.module('juvo', [
 })
 
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
-  var requireAuth = ['auth', function(auth) {
-    return auth.$requireAuth();
+  var requireAuth = ['juvoAuth', function(auth) {
+    return auth.current();
   }];
   $ionicConfigProvider.tabs.position('bottom');
 
