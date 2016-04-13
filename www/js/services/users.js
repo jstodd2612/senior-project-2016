@@ -39,16 +39,17 @@ angular.module('users', [
     }
 
     function initUser() {
-      var lastName
+      var lastName, authData
 
       return normalizeAuthData()
-        .then(function(authData) {
+        .then(function(authD) {
+          authData = authD
           var user = $firebaseObject(users.child(authData.id))
           lastName = authData.name.split(' ').pop()
           return user.$loaded()
         })
         .then(function(user) {
-          if (user.family) return
+          if (user.family) return user
 
           var newUserData = { name: authData.name }
 
