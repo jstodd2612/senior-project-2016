@@ -1,0 +1,24 @@
+
+<div>
+  <div class="card" ng-repeat="task in tasks">
+    <div class="item item-divider">
+      <a style="background-color:inherit;" class="item item-icon-right clean-link-icon">
+        <i class="icon ion-close-round jv-card-delete" ng-click="handleDeleteSubmit(task)"></i>
+        <i class="icon ion-archive jv-card-archive" ng-click="handleArchiveSubmit(task)"></i>
+        <a class="pointer">{{task.title}}</a>
+      </a>
+    </div>
+    <div class="item item-text-wrap" ng-show="task.subTasks.length">
+      <ul class="list">
+        <li class="item" ng-repeat="subTask in task.subTasks track by $index">
+          <ion-checkbox
+            style="margin-left:-25px;"
+            class="checkbox-balanced"
+            ng-model="task.subTasks[$index].completed"
+            ng-change="updateTodo(task)">{{ subTask.title }}</ion-checkbox>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+

@@ -8,88 +8,17 @@ angular.module('juvo.controllers', ['users'])
 
 // TODOS CONTROLLERS //
 
-  .controller('TodosCtrl', function($state, $scope, juvoTasks, $controller, currentAuth, todos, $ionicModal) {
+  .controller('TodosCtrl', function($state, $scope, $controller, currentAuth, todos, $ionicModal) {
     angular.extend(this, $controller('UserCtrl', {$scope: $scope}));
     $scope.todos = todos
-
-    $scope.createForm = {
-      subTasks: []
+    $scope.currentUser = currentAuth
+    $scope.showCreate = false
+    $scope.showModal = function() {
+      $scope.showCreate = true
+      setTimeout(function() {
+        $scope.showCreate = false
+      }, 0)
     }
-
-    $scope.selectedTodo = null
-
-    $scope.handleCreateSubmit = function() {
-      $scope.createForm.type = 'todo'
-      $scope.createForm.error = null
-      juvoTasks.assignTask(currentAuth.id, $scope.createForm)
-        .then(function(todo) {
-          $scope.todos.push(todo)
-          $scope.createForm = {
-            subTasks: []
-          }
-          $scope.createModal.hide()
-        })
-        .catch(function(response) {
-          $scope.createForm.error = response.data.message
-        })
-      // $state.go($state.current, {}, {reload: true});
-    }
-
-    $scope.handleDeleteSubmit = function(deletedTodo) {
-      juvoTasks.deleteTask(currentAuth.id, deletedTodo.id)
-        .then(function() {
-          $scope.todos = $scope.todos.filter(function(todo) {
-            return todo.id !== deletedTodo.id
-          })
-        })
-    }
-
-    $scope.handleArchiveSubmit = function(updatedTodo) {
-      juvoTasks.updateTask(currentAuth.id, updatedTodo.id, { archived: true })
-        .then(function() {
-          $scope.todos = $scope.todos.filter(function(todo) {
-            return todo.id !== updatedTodo.id
-          })
-        })
-    }
-
-    $scope.updateTodo = function(todo) {
-      juvoTasks.updateTask(currentAuth.id, todo.id, todo)
-        .then(function(updatedTodo) {
-
-        })
-    }
-
-    $ionicModal.fromTemplateUrl('templates/todos/create.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function(modal) {
-      $scope.createModal = modal
-    })
-
-    $ionicModal.fromTemplateUrl('templates/todos/view.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function(modal) {
-      $scope.viewModal = modal
-    })
-
-    $scope.showTodo = function(todo) {
-      $scope.selectedTodo = todo
-      $scope.viewModal.show()
-    }
-
-    $scope.addCreateSubTask = function(title) {
-      $scope.createForm.subTasks.push({
-        title: title
-      })
-      $scope.createForm.newSubTask = ''
-    }
-
-    $scope.removeCreateSubTask = function(index) {
-      $scope.createForm.subTasks.splice(index, 1)
-    }
-
   })
   .controller('CreateTodosViewCtrl', function($scope, $ionicModal, $controller) {
     angular.extend(this, $controller('TodosCtrl', {$scope: $scope}));

@@ -1,29 +1,12 @@
 <ion-view view-title="To Do List">
   <ion-content>
-    <div>
-      <div class="card" ng-repeat="todo in todos">
-        <div class="item item-divider">
-          <a style="background-color:inherit;" class="item item-icon-right clean-link-icon">
-            <i class="icon ion-close-round jv-card-delete" ng-click="handleDeleteSubmit(todo)"></i>
-            <i class="icon ion-archive jv-card-archive" ng-click="handleArchiveSubmit(todo)"></i>
-            <a class="pointer" ng-click="showTodo(todo)">{{todo.title}}</a>
-          </a>
-        </div>
-        <div class="item item-text-wrap" ng-show="todo.subTasks.length">
-          <ul class="list">
-            <li class="item" ng-repeat="subTask in todo.subTasks track by $index">
-              <ion-checkbox style="margin-left:-25px;" class="checkbox-balanced" ng-model="todo.subTasks[$index].completed" ng-change="updateTodo(todo)">{{ subTask.title }}</ion-checkbox>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <task-listing user="currentUser" tasks="todos" type="todo" title="Todos" show-create="showCreate"></task-listing>
   </ion-content>
-    <div class="float-button">
-      <span class="height-fix">
-        <a class="content" ng-click="createModal.show()">
-          <i class="ion-plus-circled custom-icon"></i>
-        </a>
-      </span>
-    </div>
+  <div class="float-button">
+    <span class="height-fix">
+      <a class="content" ng-click="showModal()">
+        <i class="ion-plus-circled custom-icon"></i>
+      </a>
+    </span>
+  </div>
 </ion-view>
