@@ -10,12 +10,25 @@
     </div>
     <div class="item item-text-wrap" ng-show="task.subTasks.length">
       <ul class="list">
-        <li class="item" ng-repeat="subTask in task.subTasks track by $index">
-          <ion-checkbox
+        <li class="item item-button-right" ng-repeat="subTask in task.subTasks track by $index">
+          <div ng-hide="editableSubTasks[task.id][$index]"><ion-checkbox
             style="margin-left:-25px;"
             class="checkbox-balanced"
             ng-model="task.subTasks[$index].completed"
-            ng-change="updateTodo(task)">{{ subTask.title }}</ion-checkbox>
+            ng-change="updateTodo(task)"
+          >
+            <span>{{ subTask.title }}</span>
+          </ion-checkbox></div>
+          <label>
+            <input type="text" ng-show="editableSubTasks[task.id][$index]" ng-model="task.subTasks[$index].title"/>
+          </label>
+          <button ng-hide="editableSubTasks[task.id][$index]" class="button button-positive" style="margin: 20px 0" ng-click="makeSubTaskEditable(task, $index, true)">
+            <i class="icon ion-edit"></i>
+          </button>
+          <button ng-show="editableSubTasks[task.id][$index]" class="button button-balanced" style="margin: 20px 0" ng-click="makeSubTaskEditable(task, $index, false)">
+            <i class="icon ion-checkmark-round"></i>
+          </button>
+
         </li>
       </ul>
     </div>

@@ -38,6 +38,10 @@ angular.module('juvo-api.view', [
           subTasks: []
         }
 
+        $scope.editableSubTasks = {
+
+        }
+
         $ionicModal.fromTemplateUrl('templates/todos/create.html', {
           scope: $scope,
           animation: 'slide-in-up'
@@ -92,6 +96,12 @@ angular.module('juvo-api.view', [
 
         $scope.removeCreateSubTask = function(index) {
           $scope.createForm.subTasks.splice(index, 1)
+        }
+
+        $scope.makeSubTaskEditable = function(task, index, val) {
+          $scope.editableSubTasks[task.id] = $scope.editableSubTasks[task.id] || {}
+          $scope.editableSubTasks[task.id][index] = val
+          $scope.updateTodo(task)
         }
 
       }
