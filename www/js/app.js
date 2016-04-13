@@ -11,6 +11,7 @@ angular.module('juvo', [
   'users',
   'juvo.controllers',
   'juvo.services',
+  'juvo-api',
   'tasks',
   'accordian',
   'addButt',
