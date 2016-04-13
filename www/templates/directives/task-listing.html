@@ -20,7 +20,7 @@
             <span>{{ subTask.title }}</span>
           </ion-checkbox></div>
           <label>
-            <input type="text" ng-show="editableSubTasks[task.id][$index]" ng-model="task.subTasks[$index].title"/>
+            <input style="font-size: 16px; height: 52px; background-color: #eee; padding-left: 20px; border-radius: 5px" type="text" ng-show="editableSubTasks[task.id][$index]" ng-model="task.subTasks[$index].title"/>
           </label>
           <button ng-hide="editableSubTasks[task.id][$index]" class="button button-positive" style="margin: 20px 0" ng-click="makeSubTaskEditable(task, $index, true)">
             <i class="icon ion-edit"></i>
