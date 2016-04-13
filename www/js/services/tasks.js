@@ -49,7 +49,7 @@ angular.module('tasks', [
     function updateTask() {
       // TODO
     }
-
+    
     function getTasksByUser(userId, type) {
       var userTasks = firebase.child('users/' + userId + '/tasks')
       return $firebaseArray(userTasks).$loaded()
@@ -62,6 +62,11 @@ angular.module('tasks', [
         })
     }
 
+    function getTask(userId, taskId) {
+      var task = firebase.child('users/' + userId + '/tasks/' + taskId)
+      return $firebaseObject(task).$loaded()
+    }
+
     // function archiveTask(userId, taskId) {
     //   return users.getCurrentUser()
     //     .then(function(user) {
@@ -70,7 +75,8 @@ angular.module('tasks', [
 
     return {
       create: createTask,
-      listByUser: getTasksByUser
+      listByUser: getTasksByUser,
+      getTask: getTask
     }
 
   }

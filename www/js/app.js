@@ -130,7 +130,16 @@ angular.module('juvo', [
     controller: 'TodosCtrl'
   })
   .state('tab.todos.view', {
-    url: '/view',
+    url: '/:todoId',
+    resolve: {
+      selectedTask: function($stateParams, tasks, users) {
+        return user
+          .getCurrentUser()
+          .then(function(user) {
+            return tasks.getTask(user.id, $statParams.id)
+          })
+      },
+    },
     templateUrl: 'templates/todos/view.html',
     controller: 'TodosCtrl'
   })
