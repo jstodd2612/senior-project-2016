@@ -9,24 +9,14 @@
         People
       </div>
         <ion-checkbox ng-repeat="child in chores.children" class="checkbox-balanced">{{child}}</ion-checkbox>
-      <div class="item item-divider">
-        Select Job
-      </div>
-      <ion-item class="item-input item-select">
-        <div class="input-label"></div>
-        <select>
-          <option ng-repeat="job in chores.jobs">{{job}}</option>
-        </select>
-      </ion-item>
-      <div class="item item-divider">
-        Select Room
-      </div>
-      <ion-item class="item-input item-select">
-        <div class="input-label"></div>
-        <select>
-          <option ng-repeat="room in chores.rooms">{{room}}</option>
-        </select>
-      </ion-item>
+        <div class="item item-divider">
+          Chore Title
+        </div>
+
+          <label class="item item-input">
+            <input type="text" placeholder="Ex. Wash Dishes">
+          </label>
+
       <div class="item item-divider">
         Schedule
       </div>

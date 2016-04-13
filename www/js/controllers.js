@@ -58,7 +58,7 @@ angular.module('juvo.controllers', ['users'])
 
 
   })
-  .controller('CreateTodosCtrl', function($scope, $ionicModal, $controller) {
+  .controller('CreateTodosViewCtrl', function($scope, $ionicModal, $controller) {
     angular.extend(this, $controller('TodosCtrl', {$scope: $scope}));
     $scope.template = 'templates/todos/create.html';
     angular.extend(this, $controller('AppModalCtrl', {$scope: $scope}));
@@ -131,7 +131,7 @@ angular.module('juvo.controllers', ['users'])
     $scope.homework = {
       children: ['Haley', 'Jack'],
       subject: ['English', 'Science', 'Math', 'History'],
-      assignments: ['History', 'Math', 'Music', 'Computers'],
+      group: ['History', 'Math', 'Music', 'Computers'],
       overdue: ['Math', 'English', 'Health']
     }
     $scope.haleyHomework = {
