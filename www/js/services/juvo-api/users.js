@@ -47,6 +47,12 @@ angular
         .then(returnData)
     }
 
+    this.uninvite = function(id) {
+      return $http
+        .delete(host + '/invites/' + id)
+        .then(returnData)
+    }
+
     this.getFamily = function() {
       return $http
         .get(host + '/families/current')
