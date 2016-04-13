@@ -8,7 +8,15 @@
       <img class="logo" src="img/GoogleLogin.png" style="cursor:pointer;" ng-click="login('google')"/>
     </div>
 
-    <form ng-submit="login2(loginForm.email, loginForm.password)">
+    <form ng-submit="submit(signinType, loginForm)">
+      <label>
+        Sign in
+        <input type="radio" name="signinType" ng-model="signinType" value="login2" selected />
+      </label>
+      <label>
+        Sign up
+        <input type="radio" name="signinType" ng-model="signinType" value="signup" />
+      </label>
       <label>
         Email
         <input type="text" ng-model="loginForm.email" />
@@ -16,6 +24,14 @@
       <label>
         Password
         <input type="password" ng-model="loginForm.password" />
+      </label>
+      <label ng-show="signinType === 'signup'">
+        First Name
+        <input type="text" ng-model="loginForm.firstName" />
+      </label>
+      <label ng-show="signinType === 'signup'">
+        Last Name
+        <input type="text" ng-model="loginForm.lastName" />
       </label>
       <button>Submit</button>
       {{ errorMessage }}

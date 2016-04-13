@@ -197,7 +197,7 @@ angular.module('juvo.controllers', ['users'])
 })
 
 
-.controller('AppModalCtrl', function($scope, $ionicModal, $controller) {
+.controller('AppModalCtrl', function($scope, $ionicModal, $controller, juvoAuth) {
 
   $ionicModal.fromTemplateUrl($scope.template, {
     scope: $scope,
@@ -215,7 +215,7 @@ angular.module('juvo.controllers', ['users'])
   }
   $scope.modalLogout = function() {
     $scope.modal.hide();
-    logout();
+    juvoAuth.logout()
   };
   $scope.$on('$destroy', function() {
     $scope.modal.remove();

@@ -5,7 +5,8 @@ angular.module('juvo.controllers')
   'users',
   '$location',
   'juvoAuth',
-  function($scope, auth, users, $location, juvoAuth) {
+  'juvoUsers',
+  function($scope, auth, users, $location, juvoAuth, juvoUsers) {
 
     $scope.errorMessage = ''
 
@@ -13,6 +14,8 @@ angular.module('juvo.controllers')
       google: 'email',
       facebook: 'email'
     }
+
+    $scope.signinType = 'login2'
 
     $scope.login = function(provider) {
       if (!provider) { return }
@@ -29,9 +32,9 @@ angular.module('juvo.controllers')
         })
     }
 
-    $scope.login2 = function(email, password) {
+    $scope.login2 = function(data) {
       $scope.errorMessage = ''
-      juvoAuth.login(email, password)
+      return juvoAuth.login(data.email, data.password)
         .then(function() {
           $location.path('/#/tab/home')
         })
@@ -39,15 +42,41 @@ angular.module('juvo.controllers')
           switch (response.status) {
             case 401:
               $scope.errorMessage = 'Email or Password was incorrect'
-              break;
+              break
             case 400:
               $scope.errorMessage = 'Please fill in all fields'
-              break;
+              break
             default:
               $scope.errorMessage = 'Something happened with our services. We are looking into it'
               console.log('login error', response)
+              break
           }
         })
+    }
+
+    $scope.signup = function(data) {
+      juvoUsers.create(data)
+        .then(function(user) {
+          return $scope.login2(data)
+        })
+        .catch(function(response) {
+          switch (response.status) {
+            case 400:
+              $scope.errorMessage = response.data.message
+              break
+            default:
+              $scope.errorMessage = 'Something happened with our services. We are looking into it'
+              console.log('signup error', response)
+              break
+          }
+        })
+    }
+
+    $scope.submit = function(type, data) {
+      if (typeof $scope[type] !== 'function') {
+        return console.log(type + ' is not a valid signinType')
+      }
+      $scope[type](data)
     }
 
     $scope.logout = function() {
