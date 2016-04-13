@@ -7,13 +7,9 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('juvo', [
   'ionic',
-  'auth',
-  'users',
   'juvo.controllers',
   'juvo-api',
-  'tasks',
-  'accordian',
-  'jvmodal'
+  'accordian'
 ])
 
 .run(function($ionicPlatform, $rootScope, $state) {

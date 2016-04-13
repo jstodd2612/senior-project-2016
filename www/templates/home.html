@@ -8,7 +8,7 @@
           <i class="icon icon-accessory" ng-class="activeMembers[member.id] ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
         </ion-item>
         <ion-item class="item-accordian" ng-repeat="item in taskTypes" ng-show="activeMembers[member.id]">
-          {{ item.label }} - /users/{{ member.id }}/tasks/{{ item.value }}
+          {{ item.label }}
         </ion-item>
       </div>
     </ion-list>

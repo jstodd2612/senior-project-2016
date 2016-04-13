@@ -1,36 +1,14 @@
 angular.module('juvo.controllers')
 .controller('LoginCtrl', [
   '$scope',
-  'auth',
-  'users',
   '$location',
   'juvoAuth',
   'juvoUsers',
-  function($scope, auth, users, $location, juvoAuth, juvoUsers) {
+  function($scope, $location, juvoAuth, juvoUsers) {
 
     $scope.errorMessage = ''
 
-    var scopeByProvider = {
-      google: 'email',
-      facebook: 'email'
-    }
-
     $scope.signinType = 'login2'
-
-    $scope.login = function(provider) {
-      if (!provider) { return }
-
-      auth.$authWithOAuthPopup(provider, { scope: scopeByProvider[provider] })
-        .then(function() {
-          return users.initUser()
-        })
-        .then(function() {
-          $location.path('/#/tab/home')
-        })
-        .catch(function(error) {
-          console.log(error)
-        })
-    }
 
     $scope.login2 = function(data) {
       $scope.errorMessage = ''

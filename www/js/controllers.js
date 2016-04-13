@@ -1,4 +1,4 @@
-angular.module('juvo.controllers', ['users'])
+angular.module('juvo.controllers', [])
 
 .controller('TopCtrl', function($scope, $state, $controller) {
     $scope.settingsClick = function() {
@@ -208,12 +208,12 @@ angular.module('juvo.controllers', ['users'])
   angular.extend(this, $controller('AppModalCtrl', {$scope: $scope}));
 })
 
-.controller('UserCtrl', function($scope, users) {
-  $scope.currentUser = null
-  users.getCurrentUser()
-    .then(function(authData) {
-      $scope.currentUser = authData
-    })
+.controller('UserCtrl', function($scope) {
+  // $scope.currentUser = null
+  // users.getCurrentUser()
+  //   .then(function(authData) {
+  //     $scope.currentUser = authData
+  //   })
 })
 
 
