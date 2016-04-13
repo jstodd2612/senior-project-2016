@@ -205,3 +205,13 @@ h2.hw-assign{
 .modal-header{
   padding-top:5vh;
 }
+
+.task-btn{
+  z-index:3;
+  margin:20px 0;
+  padding:0 7px;
+}
+
+.task-btn-left{
+  right:60px !important;
+}

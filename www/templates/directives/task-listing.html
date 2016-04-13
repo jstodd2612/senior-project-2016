@@ -22,16 +22,17 @@
           <label>
             <input type="text" ng-show="editableSubTasks[task.id][$index]" ng-model="task.subTasks[$index].title"/>
           </label>
-          <button ng-hide="editableSubTasks[task.id][$index]" class="button button-positive" style="margin: 20px 0" ng-click="makeSubTaskEditable(task, $index, true)">
+          <button ng-hide="editableSubTasks[task.id][$index]" class="button button-positive task-btn task-btn-left" style="margin: 20px 0" ng-click="makeSubTaskEditable(task, $index, true)">
             <i class="icon ion-edit"></i>
           </button>
-          <button ng-show="editableSubTasks[task.id][$index]" class="button button-balanced" style="margin: 20px 0" ng-click="makeSubTaskEditable(task, $index, false)">
+          <button ng-show="editableSubTasks[task.id][$index]" class="button button-balanced task-btn task-btn-left" style="margin: 20px 0" ng-click="makeSubTaskEditable(task, $index, false)">
             <i class="icon ion-checkmark-round"></i>
           </button>
-
+          <button class="button button-assertive task-btn" style="margin: 20px 0" ng-click="makeSubTaskEditable(task, $index, false)">
+            <i class="icon ion-close-round"></i>
+          </button>
         </li>
       </ul>
     </div>
   </div>
 </div>
-
