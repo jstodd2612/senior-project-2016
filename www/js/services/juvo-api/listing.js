@@ -11,8 +11,8 @@ angular.module('juvo-api.view', [
       tasks: '=',
       interface: '=',
       showCreate: '=',
-      type: '@',
-      title: '@'
+      createTemplate: '@',
+      type: '@'
     },
     templateUrl: 'templates/directives/task-listing.html',
     controller: [
@@ -42,7 +42,7 @@ angular.module('juvo-api.view', [
 
         }
 
-        $ionicModal.fromTemplateUrl('templates/todos/create.html', {
+        $ionicModal.fromTemplateUrl($scope.createTemplate, {
           scope: $scope,
           animation: 'slide-in-up'
         }).then(function(modal) {

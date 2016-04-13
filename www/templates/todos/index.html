@@ -1,6 +1,12 @@
 <ion-view view-title="To Do List">
   <ion-content>
-    <task-listing user="currentUser" tasks="todos" type="todo" title="Todos" show-create="showCreate"></task-listing>
+    <task-listing
+      user="currentUser"
+      tasks="todos"
+      type="todo"
+      show-create="showCreate"
+      create-template="templates/todos/create.html"
+    ></task-listing>
   </ion-content>
   <div class="float-button">
     <span class="height-fix">

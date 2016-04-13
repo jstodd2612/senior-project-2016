@@ -198,7 +198,21 @@ angular.module('juvo', [
   .state('tab.shopping.index', {
     url: '',
     templateUrl: 'templates/shopping/index.html',
-    controller: 'ShoppingCtrl'
+    controller: 'ShoppingCtrl',
+    resolve: {
+      currentAuth: requireAuth(),
+      shoppingLists: ['juvoTasks', 'juvoAuth', function(tasks, auth) {
+        return auth.current()
+          .then(function(user) {
+            return tasks.listByUser(user.id)
+          })
+          .then(function(tasks) {
+            return tasks.filter(function(task) {
+              return task.type === 'shopping'
+            })
+          })
+      }]
+    }
   })
   .state('tab.shopping.view', {
     url: '/view',
