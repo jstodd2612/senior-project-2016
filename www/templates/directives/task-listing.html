@@ -28,7 +28,7 @@
           <button ng-show="editableSubTasks[task.id][$index]" class="button button-balanced task-btn task-btn-left" style="margin: 20px 0" ng-click="makeSubTaskEditable(task, $index, false)">
             <i class="icon ion-checkmark-round"></i>
           </button>
-          <button class="button button-assertive task-btn" style="margin: 20px 0" ng-click="makeSubTaskEditable(task, $index, false)">
+          <button class="button button-assertive task-btn" style="margin: 20px 0" ng-click="deleteSubTask(task, $index)">
             <i class="icon ion-close-round"></i>
           </button>
         </li>

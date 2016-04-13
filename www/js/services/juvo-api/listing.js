@@ -78,6 +78,11 @@ angular.module('juvo-api.view', [
           tasks.updateTask($scope.user.id, todo.id, todo)
         }
 
+        $scope.deleteSubTask = function(todo, index) {
+          todo.subTasks.splice(index, 1)
+          $scope.updateTodo(todo)
+        }
+
         $scope.handleArchiveSubmit = function(taskToArchive) {
           $scope.updateTodo({ id: taskToArchive.id, archived: true })
             .then(function() {
