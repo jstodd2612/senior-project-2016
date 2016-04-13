@@ -1,6 +1,6 @@
 angular.module('juvo.controllers', ['users'])
 
-.controller('HomeCtrl', function($scope, $state, $controller) {
+.controller('TopCtrl', function($scope, $state, $controller) {
     $scope.settingsClick = function() {
       $state.go('settings');
     }

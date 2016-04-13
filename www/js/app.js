@@ -74,7 +74,10 @@ angular.module('juvo', [
         templateUrl: 'templates/home.html',
         controller: 'HomeCtrl',
         resolve: {
-          currentAuth: requireAuth
+          currentAuth: requireAuth,
+          members: ['juvoUsers', function(users) {
+            return users.list()
+          }]
         }
       }
     }
