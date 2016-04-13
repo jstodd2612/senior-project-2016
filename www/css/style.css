@@ -137,10 +137,15 @@ p.chorepg {
   width:140%;
 }
 
-.item-icon-right .jv-card-icon{
-  font-size:18px;
-  right:-8px;
-  top:-8px;
+.item-icon-right .jv-card-archive{
+  font-size:30px;
+  right:-3px;
+  top:0px;
+}
+.item-icon-right .jv-card-delete{
+  font-size:30px;
+  right:40px;
+  top:0px;
 }
 
 .clean-link-icon{

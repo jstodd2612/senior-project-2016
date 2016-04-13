@@ -3,15 +3,16 @@
     <div ng-controller="ViewTodosCtrl">
       <div class="card" ng-repeat="todo in todos">
         <div class="item item-divider">
-          <a style="background-color:inherit;" ng-class() class="item item-icon-right clean-link-icon">
-            <i class="icon ion-close-round jv-card-icon" ng-click="handleArchiveSubmit()"></i>
+          <a style="background-color:inherit;" class="item item-icon-right clean-link-icon">
+            <i class="icon ion-close-round jv-card-delete" ng-click="handleDeleteSubmit()"></i>
+            <i class="icon ion-archive jv-card-archive" ng-click="handleArchiveSubmit()"></i>
             <a class="pointer" ng-click="openModal()">{{todo.title}}</a>
           </a>
         </div>
         <div class="item item-text-wrap">
           <ul class="list">
             <li class="item">
-              <ion-checkbox style="margin-left:-25px;" class="checkbox-balanced">{{todo.content}}</ion-checkbox>
+              <ion-checkbox style="margin-left:-25px;" class="checkbox-balanced">{{todo.subTasks}}</ion-checkbox>
             </li>
           </ul>
         </div>
