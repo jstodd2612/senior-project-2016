@@ -47,6 +47,15 @@ angular.module('juvo.controllers', ['users'])
         })
     }
 
+    $scope.handleArchiveSubmit = function(updatedTodo) {
+      juvoTasks.updateTask(currentAuth.id, updatedTodo.id, { archived: true })
+        .then(function() {
+          $scope.todos = $scope.todos.filter(function(todo) {
+            return todo.id !== updatedTodo.id
+          })
+        })
+    }
+
     $scope.updateTodo = function(todo) {
       juvoTasks.updateTask(currentAuth.id, todo.id, todo)
         .then(function(updatedTodo) {
