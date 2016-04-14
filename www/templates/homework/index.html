@@ -4,7 +4,7 @@
       <ion-list>
         <div ng-repeat="group in groups">
           <ion-item class="item-avatar item-icon-right" type="item-text-wrap" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
-            <img ng-src="img/avatar-icons/0003.png">
+            <img ng-src="img/avatar-icons/001{{$index}}.png">
             <p class="homename">{{group.name}}</p>
             <i class="icon icon-accessory" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
           </ion-item>

@@ -3,7 +3,7 @@
     <ion-list>
       <div ng-repeat="member in members track by member.id">
         <ion-item class="item-avatar item-icon-right" type="item-text-wrap" ng-click="toggleActive(member.id)" ng-class="{active: activeMembers[member.id]}">
-          <img ng-src="img/avatar-icons/0014.png">
+          <img ng-src="img/avatar-icons/001{{$index}}.png">
           <p class="homename">{{member.firstName}}</p>
           <i class="icon icon-accessory" ng-class="activeMembers[member.id] ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
         </ion-item>
