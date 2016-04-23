@@ -114,7 +114,22 @@ angular.module('juvo', [
   .state('tab.homework.index', {
     url: '',
     templateUrl: 'templates/homework/index.html',
-    controller: 'HomeworkCtrl'
+    controller: 'HomeworkCtrl',
+    resolve: {
+      currentAuth: requireAuth(),
+      members: ['juvoTasks', 'juvoUsers', '$q', function(tasks, users, $q) {
+        return users.list().then(function(members){
+          return $q.all(members.map(function(member){
+            return tasks.listByUser(member.id).then(function(memberTasks){
+              member.homework = memberTasks.filter(function(memberTasks){
+                return memberTasks.type === 'homework'
+              })
+              return member
+            })
+          }))
+        })
+      }]
+    }
   })
   .state('tab.homework.view', {
     url: '/view',

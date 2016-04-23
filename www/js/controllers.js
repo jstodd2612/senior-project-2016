@@ -58,10 +58,7 @@ angular.module('juvo.controllers', [])
 
 .controller('ChoresCtrl', function($scope, $ionicModal, $q, currentAuth, members, juvoTasks) {
     $scope.chores = {
-      // children: ['Karen', 'Timothy', 'Samantha', 'Susan'],
-      // jobs: ['Sweep', 'Clean', 'Dishes', 'Vacuum'],
-      // rooms: ['Kitchen', 'Bathrooms', 'Bedrooms', 'Backyard'],
-      days: ['Sun', 'M', 'T', 'W', 'R', 'F', 'S']
+      days: ['S', 'M', 'Tue', 'W', 'Th', 'F', 'Sat']
     }
     $scope.members = members
     $scope.activeMembers = {}
@@ -123,33 +120,86 @@ angular.module('juvo.controllers', [])
   })
 
 // HOMEWORK CONTROLLERS //
+.controller('HomeworkCtrl', function($scope, $ionicModal, $q, currentAuth, members, juvoTasks) {
+  // $scope.homework = {
+  //   subject: ['English', 'Science', 'Math', 'History'],
+  //   group: ['History', 'Math', 'Music', 'Computers'],
+  //   overdue: ['Math', 'English', 'Health']
+  // }
+  // $scope.haleyHomework = {
+  //   Overdue: ['Math', 'English', 'Health'],
+  //   ThisWeek: ['Science'],
+  //   NextWeek: ['Dance']
+  // }
+    $scope.members = members
+    $scope.activeMembers = {}
+    $scope.createForm = {}
 
-.controller('HomeworkCtrl', function($scope) {
-    $scope.homework = {
-      children: ['Haley', 'Jack'],
-      subject: ['English', 'Science', 'Math', 'History'],
-      group: ['History', 'Math', 'Music', 'Computers'],
-      overdue: ['Math', 'English', 'Health']
+    $scope.toggleActive = function(id) {
+      $scope.activeMembers[id] = !$scope.activeMembers[id]
     }
-    $scope.haleyHomework = {
-      Overdue: ['Math', 'English', 'Health'],
-      ThisWeek: ['Science'],
-      NextWeek: ['Dance']
+
+    $ionicModal.fromTemplateUrl('templates/homework/create.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.createModal = modal
+    })
+
+    $scope.handleCreateSubmit = function() {
+      var assignedMembers = Object
+        .keys($scope.createForm.assigned || {})
+        .filter(function(memberId) {
+          return $scope.createForm.assigned[memberId]
+        })
+
+      var promises = assignedMembers.map(function(memberId) {
+        return juvoTasks
+          .assignTask(memberId, {
+            type: 'homework',
+            title: $scope.createForm.title,
+            meta: $scope.createForm.meta,
+            subTasks: Object.keys($scope.createForm.subTasks).map(function(key) {
+              return $scope.createForm.subTasks[key]
+            })
+          })
+          .then(function(task) {
+            var index = -1
+            $scope.members.some(function(member, i) {
+              if (member.id === memberId) {
+                index = i
+                return true
+              }
+              return false
+            })
+            if (index === -1) return
+            $scope.members[index].chores.push(task)
+          })
+      })
+
+      $q.all(promises)
+        .then(function() {
+          $scope.createModal.hide()
+          $scope.createForm = {}
+        })
     }
-
-    $scope.groups = ['Overdue', 'ThisWeek', 'NextWeek'];
-
-    $scope.toggleGroup = function(group) {
-      if ($scope.isGroupShown(group)) {
-        $scope.shownGroup = null;
-      } else {
-        $scope.shownGroup = group;
-      }
-    };
-    $scope.isGroupShown = function(group) {
-      return $scope.shownGroup === group;
-    };
   })
+// .controller('HomeworkCtrl', function($scope) {
+//
+//
+//     $scope.groups = ['Overdue', 'ThisWeek', 'NextWeek'];
+//
+//     $scope.toggleGroup = function(group) {
+//       if ($scope.isGroupShown(group)) {
+//         $scope.shownGroup = null;
+//       } else {
+//         $scope.shownGroup = group;
+//       }
+//     };
+//     $scope.isGroupShown = function(group) {
+//       return $scope.shownGroup === group;
+//     };
+//   })
   .controller('CreateHomeworkCtrl', function($scope, $ionicModal, $controller) {
     angular.extend(this, $controller('HomeworkCtrl', {$scope: $scope}));
     $scope.template = 'templates/homework/create.html';

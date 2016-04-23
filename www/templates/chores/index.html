@@ -8,10 +8,10 @@
             <p class="homename">{{member.firstName}}</p>
             <i class="icon icon-accessory" ng-class="activeMembers[member.id] ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
           </ion-item>
-          <ion-item class="item-accordion" ng-repeat="chore in member.chores" ng-show="activeMembers[member.id]">
+          <ion-item class="item-accordion" ng-repeat="hw in member.homework" ng-show="activeMembers[member.id]">
             <a ui-sref="tab.chores.view">
               <button class="button button-positive">
-                {{ chore.title }} - {{ chore.subTasks[0].title }}
+                {{ hw.title }} - {{ hw.subTasks[0].title }}
               </button>
             </a>
           </ion-item>

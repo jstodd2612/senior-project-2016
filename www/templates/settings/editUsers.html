@@ -1,17 +1,23 @@
 <ion-view name="editUsers" view-title="Edit Users">
   <ion-content>
-    <div ng-controller="accordCtrl">
+    <div>
       <ion-list>
-        <ion-item ng-repeat="member in members">
-          {{ member.firstName }} {{ member.lastName }}
+        <ion-item class="item-avatar item-icon-right" type="item-text-wrap" ng-repeat="member in members">
+          <img ng-src="img/avatar-icons/001{{$index}}.png">
+          <p class="homename">{{member.firstName}} {{ member.lastName }}</p>
           <span ng-show="member.id === currentAuth.id">(You)</span>
         </ion-item>
+        <!-- <ion-item ng-repeat="member in members">
+          {{ member.firstName }} {{ member.lastName }}
+        </ion-item> -->
+        <span ng-show"invites.length"><!--TODO show only when there are invites-->
         <ion-item class="item-divider" ng-show="invites.length">
           Pending Invites:
         </ion-item>
         <ion-item ng-repeat="invite in invites | filter: {claimed: false}">
           {{ invite.email }}
         </ion-item>
+      </span>
       </ion-list>
     </div>
   </ion-content>
