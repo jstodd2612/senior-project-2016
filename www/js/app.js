@@ -268,8 +268,17 @@ angular.module('juvo', [
     }
   })
   .state('tab.chores.view', {
-    url: '/view',
+    url: '/view/{userId}&{taskId}',
     templateUrl: 'templates/chores/view.html',
+    resolve: {
+      currentAuth: requireAuth(),
+      selectedtask: function(tasks, $stateParams, juvoAuth) {
+        return juvoAuth.current()
+          .then(function(user) {
+            return tasks.getTask($stateParams.userId, $stateParams.taskId)
+          })
+      }
+    }
     // controller: 'ChoresCtrl'
   })
 

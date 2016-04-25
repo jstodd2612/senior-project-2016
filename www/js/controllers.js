@@ -56,7 +56,7 @@ angular.module('juvo.controllers', [])
 
 // CHORES CONTROLLERS //
 
-.controller('ChoresCtrl', function($scope, $ionicModal, $q, currentAuth, members, juvoTasks) {
+.controller('ChoresCtrl', function($scope, $state, $ionicModal, $q, currentAuth, members, juvoTasks) {
     $scope.chores = {
       days: ['S', 'M', 'Tue', 'W', 'Th', 'F', 'Sat']
     }
@@ -112,10 +112,14 @@ angular.module('juvo.controllers', [])
           $scope.createForm = {}
         })
     }
+
+    $scope.handleTaskView = function(userId,taskId){
+      $state.go('tab.chores.view', {userId: userId, taskId: taskId});
+    }
   })
 
 // HOMEWORK CONTROLLERS //
-.controller('HomeworkCtrl', function($scope, $ionicModal, $q, currentAuth, members, juvoTasks) {
+.controller('HomeworkCtrl', function($scope, $ionicModal, $q, currentAuth, members, juvoTasks, $state) {
   // $scope.homework = {
   //   subject: ['English', 'Science', 'Math', 'History'],
   //   group: ['History', 'Math', 'Music', 'Computers'],
@@ -179,7 +183,10 @@ angular.module('juvo.controllers', [])
           $scope.createModal.hide()
           $scope.createForm = {}
         })
+
     }
+
+
   })
 // .controller('HomeworkCtrl', function($scope) {
 //

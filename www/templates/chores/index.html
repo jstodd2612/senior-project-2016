@@ -9,7 +9,7 @@
             <i class="icon icon-accessory" ng-class="activeMembers[member.id] ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
           </ion-item>
           <ion-item class="item-accordion" ng-repeat="chore in member.chores" ng-show="activeMembers[member.id]">
-            <a ui-sref="tab.chores.view">
+            <a ng-click="handleTaskView({{member.id}},{{chore.id}})">
               <button class="button button-clear button-dark">
                 {{ chore.title }} - {{ chore.subTasks[0].title }}
               </button>

@@ -17,6 +17,12 @@ angular
         .then(returnData)
     }
 
+    this.getTask = function(userId, taskId) {
+      return $http
+        .get(host + '/users/' + userId + '/tasks/' + taskId)
+        .then(returnData)
+    }
+
     this.assignTask = function(userId, data) {
       return $http
         .post(host + '/users/' + userId + '/tasks', data)
