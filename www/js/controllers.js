@@ -113,11 +113,6 @@ angular.module('juvo.controllers', [])
         })
     }
   })
-  .controller('CreateChoresCtrl', function($scope, $ionicModal, $controller) {
-    angular.extend(this, $controller('ChoresCtrl', {$scope: $scope}));
-    $scope.template = 'templates/chores/create.html';
-    angular.extend(this, $controller('AppModalCtrl', {$scope: $scope}));
-  })
 
 // HOMEWORK CONTROLLERS //
 .controller('HomeworkCtrl', function($scope, $ionicModal, $q, currentAuth, members, juvoTasks) {
@@ -160,10 +155,12 @@ angular.module('juvo.controllers', [])
             title: $scope.createForm.title,
             meta: $scope.createForm.meta,
             subTasks: Object.keys($scope.createForm.subTasks).map(function(key) {
+              console.log('Find the break - ln 158 controllers.js');
               return $scope.createForm.subTasks[key]
             })
           })
           .then(function(task) {
+            console.log('Find the break - ln 163 controllers.js');
             var index = -1
             $scope.members.some(function(member, i) {
               if (member.id === memberId) {
@@ -173,7 +170,7 @@ angular.module('juvo.controllers', [])
               return false
             })
             if (index === -1) return
-            $scope.members[index].chores.push(task)
+            $scope.members[index].homework.push(task)
           })
       })
 
@@ -200,11 +197,7 @@ angular.module('juvo.controllers', [])
 //       return $scope.shownGroup === group;
 //     };
 //   })
-  .controller('CreateHomeworkCtrl', function($scope, $ionicModal, $controller) {
-    angular.extend(this, $controller('HomeworkCtrl', {$scope: $scope}));
-    $scope.template = 'templates/homework/create.html';
-    angular.extend(this, $controller('AppModalCtrl', {$scope: $scope}));
-  })
+
 
 
 .controller('SettingsCtrl', function($scope, $controller) {
